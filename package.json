@@ -3,8 +3,10 @@
 	"displayName": "console helper",
 	"description": "省去手打键盘，通过快捷键输入 console，在控制台中醒目展示 log 信息",
 	"version": "0.0.1",
+	"publisher": "AT",
+	"repository": "https://github.com/shangZhengXie/console-helper",
 	"engines": {
-		"vscode": "^1.51.0"
+		"vscode": "^1.5.0"
 	},
 	"categories": [
 		"Other"
