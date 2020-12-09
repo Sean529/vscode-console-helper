@@ -1,37 +1,132 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-const vscode = require('vscode');
+const vscode = require('vscode')
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+// 执行 log 写入
+const insertText = val => {
+  // Todo: 不理解
+  const editor = vscode.window.activeTextEditor
+  if (!editor) {
+    showErrorMessage()
+    return
+  }
+  // Todo: 不理解
+  const { selection } = editor
 
-/**
- * @param {vscode.ExtensionContext} context
- */
-function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "console-helper" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('console-helper.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from console helper!');
-	});
-
-	context.subscriptions.push(disposable);
+  // Todo: 不理解
+  const range = new vscode.Range(selection.start, selection.end)
+  // Todo: 不理解
+  editor.edit(editBuilder => {
+    // Todo: 不理解
+    editBuilder.replace(range, val)
+  })
 }
-exports.activate = activate;
 
-// this method is called when your extension is deactivated
-function deactivate() {}
+// 文件无权限提示
+const showErrorMessage = () => {
+  vscode.window.showErrorMessage('无法插入 log，文件没有编辑权限')
+}
+
+// 获取全部 log 语句
+const getAllLogStatements = (document, documentText) => {
+  const logStatements = []
+  const logRegex = /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\((.*)\);?/g
+  let match
+  while ((match = logRegex.exec(documentText))) {
+    const matchRange = new vscode.Range(
+      document.positionAt(match.index),
+      document.positionAt(match.index + match[0].length)
+    )
+    if (!matchRange.isEmpty) logStatements.push(matchRange)
+  }
+  return logStatements
+}
+
+// 删除所有找到的 log 语句
+const deleteFoundLogStatements = (workspaceEdit, docUri, logs) => {
+  logs.forEach(log => {
+    workspaceEdit.delete(docUri, log)
+  })
+
+  vscode.workspace.applyEdit(workspaceEdit).then(() => {
+    // 删除成功后提示
+    if (logs.length) {
+      vscode.window.showInformationMessage(
+        `${logs.length} console.logs deleted`
+      )
+    } else {
+      vscode.window.showInformationMessage(`${logs.length} console.log deleted`)
+    }
+  })
+}
+
+// log 插入
+const insertLogStatement = context => {
+  const insert = vscode.commands.registerCommand(
+    'console-helper.insertLogStatement',
+    () => {
+      const editor = vscode.window.activeTextEditor
+      if (!editor) {
+        showErrorMessage()
+        return
+      }
+
+      // Todo: 不理解
+      const { selection } = editor
+      // Todo: 不理解
+      const text = editor.document.getText(selection) // 选择的字符
+      if (text) {
+        // 将选择的字符美化后打印
+        vscode.commands
+          .executeCommand('editor.action.insertLineAfter')
+          .then(() => {
+            const str = text.replace(/'|"/g, '')
+            const logToInsert = `console.log('%c[ ${str} ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', ${text})`
+            insertText(logToInsert)
+          })
+      } else {
+        // 没有选择字符
+        // TODO: 光标移动到空号中间
+        insertText('console.log();')
+      }
+    }
+  )
+
+  context.subscriptions.push(insert)
+}
+
+// 删除页面中全部 log
+const deleteAllLog = context => {
+  const deleteAllLogStatements = vscode.commands.registerCommand(
+    'console-helper.deleteAllLogStatements',
+    () => {
+      const editor = vscode.window.activeTextEditor
+      if (!editor) {
+        showErrorMessage()
+        return
+      }
+
+      const document = editor.document
+      const documentText = editor.document.getText()
+
+      const workspaceEdit = new vscode.WorkspaceEdit()
+
+      const logStatements = getAllLogStatements(document, documentText)
+
+      deleteFoundLogStatements(workspaceEdit, document.uri, logStatements)
+    }
+  )
+  context.subscriptions.push(deleteAllLogStatements)
+}
+
+const activate = context => {
+  insertLogStatement(context)
+  deleteAllLog(context)
+}
+
+exports.activate = activate
+
+const deactivate = () => {}
 
 module.exports = {
-	activate,
-	deactivate
+  activate,
+  deactivate
 }
