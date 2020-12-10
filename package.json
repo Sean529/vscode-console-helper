@@ -1,13 +1,14 @@
 {
   "name": "console-helper",
   "displayName": "console helper",
-  "description": "省去手打键盘，通过快捷键输入 console，在控制台中醒目展示 log 信息",
+  "description": "本插件可省去手打键盘的时间，快捷输出 console 并在控制台中可醒目展示你的 log 信息",
   "version": "0.0.1",
-  "publisher": "AT",
+  "publisher": "AT-9420",
   "repository": "https://github.com/shangZhengXie/console-helper",
   "engines": {
-    "vscode": "^1.5.0"
+    "vscode": "^1.51.0"
   },
+  "keywords": ["console", "javascript", "log", "console.log", "javascript console", "console utils", "console helper", "console-helper"],
   "categories": ["Other"],
   "activationEvents": [
     "onCommand:console-helper.helloWorld",
