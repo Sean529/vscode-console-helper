@@ -1,6 +1,6 @@
 # console-helper（日志小助手）
 
-**console helper** —— 旨在帮助开发人员编码时更快的输入/移除 log，搭配上醒目的主题，提高你的开发效率。
+**console helper** — 旨在帮助开发人员编码时更快的输入/移除 log，搭配上醒目的主题，提高开发效率。
 
 ## 安装插件
 
@@ -14,13 +14,13 @@
 
 #### console.log
 
-通过快捷键 **cmd + l**，会在当前行输出 `console.log` 语句
+通过快捷键 **cmd + shift + l**，会在当前行输出 `console.log` 语句
 
 #### console.log('%c[ var ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', vat)
 
 以变量 `var` 示例：
 
-选中变量 `var` 后按快捷键 **cmd + l**，会在下方插入一行 `console.log('%c[ var ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', vat)` 语句
+选中变量 `var` 后按快捷键 **cmd + shift + l**，会在下方插入一行 `console.log('%c[ var ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', vat)` 语句
 
 ### 快捷删除当前页面中所有 log
 
@@ -28,7 +28,7 @@
 
 ## 修改快捷键绑定
 
-首选项 -> 打开快捷键盘方式 -> 输入 **cmd + l**， 将除了 **cmd + l** 外绑定的快捷键删除即可。
+首选项 -> 打开快捷键盘方式 -> 输入 **cmd + shift + l**， 将 **cmd + shift + l** 改为习惯的快捷键即可，推荐改为 **cmd + l**。
 
 ## Changelog
 
