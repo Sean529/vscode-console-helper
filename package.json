@@ -1,10 +1,11 @@
 {
   "name": "console-helper",
   "displayName": "console helper",
-  "description": "console helper —— 旨在帮助开发人员编码时更快的输入/移除 log，搭配上醒目的主题，提高你的开发效率。",
-  "version": "0.0.1",
+  "description": "console helper — 旨在帮助开发人员编码时更快的输入/移除 log，搭配上醒目的主题，提高开发效率。",
+  "version": "0.0.5",
   "publisher": "AT-9420",
   "repository": "https://github.com/shangZhengXie/console-helper",
+  "icon": "static/console-helper.png",
   "engines": {
     "vscode": "^1.51.0"
   },
@@ -46,7 +47,7 @@
       {
         "command": "console-helper.insertLogStatement",
         "key": "ctrl+l",
-        "mac": "cmd+l",
+        "mac": "shift+cmd+l",
         "when": "editorTextFocus"
       },
       {
