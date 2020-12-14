@@ -122,8 +122,6 @@ const activate = context => {
   deleteAllLog(context)
 }
 
-exports.activate = activate
-
 const deactivate = () => {}
 
 module.exports = {
