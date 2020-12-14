@@ -35,11 +35,11 @@
     "commands": [
       {
         "command": "console-helper.insertLogStatement",
-        "title": "console helper insert log statement"
+        "title": "在文件光标闪烁处插入 console.log 语句"
       },
       {
         "command": "console-helper.deleteAllLogStatements",
-        "title": "Delete all console.log statements"
+        "title": "删除当前文件中全部的 console.log 语句"
       }
     ],
     "keybindings": [
