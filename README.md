@@ -6,10 +6,11 @@
 
 安装插件：[VisualStudio - Marketplace](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)，VSCode 最低版本要求：`v1.51.0+`
 
-## feature
+## Feature
 
 - [x] 快捷输出 log
 - [x] 快捷删除当前页面中所有 log
+- [x] 支持代码片段
 - [ ] 自定义颜色
 - [ ] 自定义前缀
 
@@ -21,8 +22,8 @@
 
 快捷方式：
 
-- Mac: `cmd` + `shift` + `t`
-- Win: `ctrl` + `t`
+- macOS: `cmd` + `shift` + `t`
+- Windows: `ctrl` + `t`
 
 ### console.log 打印样式[2]
 
@@ -30,8 +31,8 @@
 
 快捷方式：
 
-- Mac: `cmd` + `shift` + `l`
-- Win: `ctrl` + `l`
+- macOS: `cmd` + `shift` + `l`
+- Windows: `ctrl` + `l`
 
 ### 将选中的变量打印
 
@@ -39,8 +40,8 @@
 
 快捷方式：
 
-- Mac: `cmd` + `shift` + `l`
-- Win: `ctrl` + `l`
+- macOS: `cmd` + `shift` + `l`
+- Windows: `ctrl` + `l`
 
 ### 快捷删除当前页面中所有 log
 
@@ -48,21 +49,30 @@
 
 快捷方式：
 
-- Mac: `cmd` + `shift` + `d`
-- Win: `ctrl` + `shift` + `d`
+- macOS: `cmd` + `shift` + `d`
+- Windows: `ctrl` + `shift` + `d`
+
+### 代码片段
+
+- `clg` or `log` 输出 `console.log('[ ] >', )`
+- `clog` 输出 `console.log('%c[ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
 
 ## 修改快捷键绑定
 
 > 修改快捷绑定(教程)
 
-- Mac: 首选项 -> 快捷键盘方式 -> 输入 **console-helper**，将 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
-- Win: 首选项 -> 快捷键盘方式 -> 输入 **console-helper**， 将 **ctrl + l** 改为习惯的快捷键即可。
+- macOS: Code > 首选项 > 键盘快捷方式 > 输入 **console-helper**，将默认 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
+- Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **console-helper**， 将默认 **ctrl + l** 改为习惯的快捷键即可。
 
-> 快捷键盘(快捷键)
+> 快速打开键盘快捷方式(快捷键)
 
-- Mac: `cmd` + `k`, `cmd` + `s`
-- Win: `ctrl` + `k`, `ctrl` + `s`
+- macOS: `cmd` + `k`, `cmd` + `s`
+- Windows: `ctrl` + `k`, `ctrl` + `s`
 
 ## Changelog
 
 [CHANGELOG](./CHANGELOG.md)
+
+## License
+
+[LICENSE](./LICENSE)
