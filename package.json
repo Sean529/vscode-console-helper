@@ -59,7 +59,7 @@
         "command": "consoleHelper.insertLogStatement",
         "key": "ctrl+l",
         "mac": "cmd+shift+l",
-        "when": "editorTextFocus && editorHasSelection" // 选中字符后触发
+        "when": "editorTextFocus && editorHasSelection"
       },
       {
         "command": "consoleHelper.deleteAllLogStatements",
@@ -68,7 +68,7 @@
       },
       {
         "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && !editorHasSelection", // 未选择文字时触发
+        "when": "editorTextFocus && !editorHasSelection",
         "args": {
           "snippet": "console.log('[ $1 ] ->', $1)$0"
         },
