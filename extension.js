@@ -82,10 +82,6 @@ const insertLogStatement = context => {
             const logToInsert = `console.log('%c[ ${str} ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', ${text})`
             insertText(logToInsert)
           })
-      } else {
-        // 没有选择字符
-        // TODO: 光标移动到空号中间
-        insertText('console.log();')
       }
     }
   )
