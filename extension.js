@@ -61,7 +61,7 @@ const deleteFoundLogStatements = (workspaceEdit, docUri, logs) => {
 // log 插入
 const insertLogStatement = context => {
   const insert = vscode.commands.registerCommand(
-    'console-helper.insertLogStatement',
+    'consoleHelper.insertLogStatement',
     () => {
       const editor = vscode.window.activeTextEditor
       if (!editor) {
@@ -96,7 +96,7 @@ const insertLogStatement = context => {
 // 删除页面中全部 log
 const deleteAllLog = context => {
   const deleteAllLogStatements = vscode.commands.registerCommand(
-    'console-helper.deleteAllLogStatements',
+    'consoleHelper.deleteAllLogStatements',
     () => {
       const editor = vscode.window.activeTextEditor
       if (!editor) {
