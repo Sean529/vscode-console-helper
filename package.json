@@ -23,18 +23,23 @@
     "log utils",
     "javascript console log",
     "javascript console log utils",
-    "javascript console"
+    "javascript console",
+    "javascript log",
+    "js log",
+    "js-log",
+    "c-log",
+    "日志小助手"
   ],
-  "categories": ["Other"],
+  "categories": ["Other", "Snippets"],
   "activationEvents": [
-    "onCommand:console-helper.insertLogStatement",
-    "onCommand:console-helper.deleteAllLogStatements"
+    "onCommand:consoleHelper.insertLogStatement",
+    "onCommand:consoleHelper.deleteAllLogStatements"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "console-helper.insertLogStatement",
+        "command": "consoleHelper.insertLogStatement",
         "title": "在文件光标闪烁处插入 console.log 语句"
       },
       {
@@ -42,19 +47,19 @@
         "title": "快捷输出 console.log('[ ]', '') 语句"
       },
       {
-        "command": "console-helper.deleteAllLogStatements",
+        "command": "consoleHelper.deleteAllLogStatements",
         "title": "删除当前文件中全部的 console.log 语句"
       }
     ],
     "keybindings": [
       {
-        "command": "console-helper.insertLogStatement",
+        "command": "consoleHelper.insertLogStatement",
         "key": "ctrl+l",
         "mac": "cmd+shift+l",
         "when": "editorHasSelection"
       },
       {
-        "command": "console-helper.deleteAllLogStatements",
+        "command": "consoleHelper.deleteAllLogStatements",
         "key": "ctrl+shift+d",
         "mac": "cmd+shift+d"
       },
@@ -66,6 +71,12 @@
         },
         "key": "ctrl+t",
         "mac": "cmd+shift+t"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets.json"
       }
     ]
   },
