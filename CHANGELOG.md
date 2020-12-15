@@ -1,9 +1,6 @@
-# Change Log
+# 变更日志
+此项目的所有显著更改将记录在此文件中。
 
-All notable changes to the "console-helper" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+## [0.1.0]
+- feat 快捷输出 console.log
+- feat 一键删除页面所有 console.log
