@@ -94,17 +94,22 @@
         "consoleHelper.Color": {
           "type": "string",
           "default": "#bf2c9f",
-          "description": "字体颜色"
+          "description": "字体颜色(不填默认 #bf2c9f)"
         },
         "consoleHelper.Color Bg": {
           "type": "string",
           "default": "pink",
-          "description": "背景颜色"
+          "description": "背景颜色(不填默认 pink)"
         },
         "consoleHelper.Font Size": {
           "type": "string",
           "default": "13px",
-          "description": "字号大小"
+          "description": "字号大小(不填默认 13px)"
+        },
+        "consoleHelper.Show Semi": {
+          "type": "boolean",
+          "default": false,
+          "description": "末尾是否加分号"
         }
       }
     }

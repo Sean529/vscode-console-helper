@@ -11,12 +11,13 @@
 - [x] 快捷输出 log
 - [x] 快捷删除当前页面中所有 log
 - [x] 支持代码片段
-- [x] 支持自定义前缀标识
-- [x] 支持自定义字体颜色
-- [x] 支持自定义背景颜色
-- [x] 支持自定义字号大小
+- [x] 自定义前缀标识
+- [x] 自定义字体颜色
+- [x] 自定义背景颜色
+- [x] 自定义字号大小
+- [x] 可配置末尾是否加分号(默认不加)
 
-## 使用方式
+## Usages
 
 ### 在当前行输出
 
@@ -50,12 +51,19 @@
 - `clg` or `log` 输出 `console.log('[ ] >', )`
 - `clog` 输出 `console.log('%c[ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
 
+### 配置项
+
+> 自定义小助手 console
+
+- macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleHelper**，可自定义配置项。
+- Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleHelper**，可自定义配置项。
+
 ## 修改快捷键绑定
 
 > 修改快捷绑定(教程)
 
 - macOS: Code > 首选项 > 键盘快捷方式 > 输入 **console-helper**，将默认 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
-- Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **console-helper**， 将默认 **ctrl + l** 改为习惯的快捷键即可。
+- Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **console-helper**，将默认 **ctrl + l** 改为习惯的快捷键即可。
 
 > 快速打开键盘快捷方式(快捷键)
 

@@ -83,11 +83,16 @@ const insertLogStatement = context => {
             const colorBg = getSettingValue('Color Bg')
             const color = getSettingValue('Color')
             const prefixLogo = getSettingValue('Prefix Logo')
+            const isShowSemi = getSettingValue('Show Semi')
             let logToInsert = ''
             if (prefixLogo) {
-              logToInsert = `console.log('%c${prefixLogo}-[ ${str} ]: ', 'color: ${color}; background: ${colorBg}; font-size: ${fontSize};', ${text})`
+              const showSemi = `console.log('%c${prefixLogo}-[ ${str} ]: ', 'color: ${color}; background: ${colorBg}; font-size: ${fontSize};', ${text});`
+              const notShowSemi = `console.log('%c${prefixLogo}-[ ${str} ]: ', 'color: ${color}; background: ${colorBg}; font-size: ${fontSize};', ${text})`
+              logToInsert = isShowSemi ? showSemi : notShowSemi
             } else {
-              logToInsert = `console.log('%c[ ${str} ]: ', 'color: ${color}; background: ${colorBg}; font-size: ${fontSize};', ${text})`
+              const showSemi = `console.log('%c[ ${str} ]: ', 'color: ${color}; background: ${colorBg}; font-size: ${fontSize};', ${text});`
+              const notShowSemi = `console.log('%c[ ${str} ]: ', 'color: ${color}; background: ${colorBg}; font-size: ${fontSize};', ${text})`
+              logToInsert = isShowSemi ? showSemi : notShowSemi
             }
             insertText(logToInsert)
           })
@@ -118,6 +123,11 @@ const SETTINGS_LIST = [
     name: 'Font Size',
     default: '13px',
     description: '字号大小'
+  },
+  {
+    name: 'Show Semi',
+    default: false,
+    description: '末尾是否加分号'
   }
 ]
 const getSettingValue = name => {
