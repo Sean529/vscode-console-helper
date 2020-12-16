@@ -79,7 +79,16 @@ const insertLogStatement = context => {
           .executeCommand('editor.action.insertLineAfter')
           .then(() => {
             const str = text.replace(/'|"/g, '')
-            const logToInsert = `console.log('%c[ ${str} ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', ${text})`
+            const fontSize = getSettingValue('Font Size')
+            const colorBg = getSettingValue('Color Bg')
+            const color = getSettingValue('Color')
+            const prefixLogo = getSettingValue('Prefix Logo')
+            let logToInsert = ''
+            if (prefixLogo) {
+              logToInsert = `console.log('%c${prefixLogo}-[ ${str} ]: ', 'color: ${color}; background: ${colorBg}; font-size: ${fontSize};', ${text})`
+            } else {
+              logToInsert = `console.log('%c[ ${str} ]: ', 'color: ${color}; background: ${colorBg}; font-size: ${fontSize};', ${text})`
+            }
             insertText(logToInsert)
           })
       }
@@ -87,6 +96,40 @@ const insertLogStatement = context => {
   )
 
   context.subscriptions.push(insert)
+}
+// TODO: 应该可以获取配置信息，后期可以改为从配置信息中获取变量名
+const SETTINGS_LIST = [
+  {
+    name: 'Prefix Logo',
+    default: '',
+    description: '前缀标识'
+  },
+  {
+    name: 'Color',
+    default: '#bf2c9f',
+    description: '字体颜色'
+  },
+  {
+    name: 'Color Bg',
+    default: 'pink',
+    description: '背景颜色'
+  },
+  {
+    name: 'Font Size',
+    default: '13px',
+    description: '字号大小'
+  }
+]
+const getSettingValue = name => {
+  const value = vscode.workspace.getConfiguration().get(`consoleHelper.${name}`)
+  const len = SETTINGS_LIST.length
+  for (let i = 0; i < len; i++) {
+    const item = SETTINGS_LIST[i]
+    if (item.name === name) {
+      return value || item.default
+    }
+  }
+  return ''
 }
 
 // 删除页面中全部 log

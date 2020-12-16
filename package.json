@@ -30,10 +30,7 @@
     "c-log",
     "日志小助手"
   ],
-  "categories": [
-    "Other",
-    "Snippets"
-  ],
+  "categories": ["Other", "Snippets"],
   "activationEvents": [
     "onCommand:consoleHelper.insertLogStatement",
     "onCommand:consoleHelper.deleteAllLogStatements"
@@ -81,7 +78,33 @@
         "language": "javascript",
         "path": "./snippets.json"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "日志小助手",
+      "properties": {
+        "consoleHelper.Prefix Logo": {
+          "type": "string",
+          "default": "",
+          "description": "前缀标识"
+        },
+        "consoleHelper.Color": {
+          "type": "string",
+          "default": "#bf2c9f",
+          "description": "字体颜色"
+        },
+        "consoleHelper.Color Bg": {
+          "type": "string",
+          "default": "pink",
+          "description": "背景颜色"
+        },
+        "consoleHelper.Font Size": {
+          "type": "string",
+          "default": "13px",
+          "description": "字号大小"
+        }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint .",
