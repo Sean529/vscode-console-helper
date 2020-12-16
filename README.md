@@ -75,13 +75,22 @@
 
 > 修改快捷绑定(教程)
 
-* macOS: Code > 首选项 > 键盘快捷方式 > 输入 **console-helper**，将默认 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
-* Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **console-helper**，将默认 **ctrl + l** 改为习惯的快捷键即可。
+* macOS: Code > 首选项 > 键盘快捷方式 > 输入 **consoleHelper**，将默认 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
+* Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **consoleHelper**，将默认 **ctrl + l** 改为习惯的快捷键即可。
 
 > 快速打开键盘快捷方式(快捷键)
 
 * macOS: `cmd` + `k`,  `cmd` + `s`
 * Windows: `ctrl` + `k`,  `ctrl` + `s`
+
+## QA
+
+为什么我的不行？
+
+> 亲，可能是您的快捷键被占用了~
+> 请打开键盘快捷方式列表，查看您的快捷键是否被占用，删除占用的命令或修改 consoleHelper 绑定的快捷键即可，具体的操作如下：
+
+在键盘快捷方式列表，输入被占用的快捷方式 **cmd + shift + l** ，右键选择删除或修改其他命令。
 
 ## Changelog
 
