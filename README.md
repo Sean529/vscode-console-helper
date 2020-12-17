@@ -2,14 +2,22 @@
 
 **console helper** — 旨在帮助开发人员编码时更快的输入/移除 log，搭配上醒目的主题，提高开发效率。
 
-1. 非常迷你，不占用内存资源
-2. 用完都说 很快啊，比起手动输入 log clg 快太多 香~
-3. 作为懒人一定要试试
-4. 配置性强，可自由配置日志输出
+1. 迷你插件，**不占用内存资源，本插件不会让您的编辑器变得卡顿**
+2. 用完都说 很快啊 舒服~，比起手动输入 log clg 快太多了 香~
+3. 如果你跟我一样**懒**，那么很适合你
+4. 配置性强，可自由配置日志格式
 
-## Install
+## setting
 
-安装插件：[VisualStudio - Marketplace](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)，VSCode 最低版本要求： `v1.51.0+`
+> 快速打开键盘快捷方式(快捷键)
+
+* macOS: `cmd` + `k`,  `cmd` + `s`
+* Windows: `ctrl` + `k`,  `ctrl` + `s`
+
+> 修改快捷绑定(教程)
+
+* macOS: Code > 首选项 > 键盘快捷方式 > 输入 **consoleHelper**，将默认 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
+* Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **consoleHelper**，将默认 **ctrl + l** 改为习惯的快捷键即可。
 
 ## Feature
 
@@ -76,17 +84,9 @@
 * macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleHelper**，可自定义配置项。
 * Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleHelper**，可自定义配置项。
 
-## setting
+## Install
 
-> 修改快捷绑定(教程)
-
-* macOS: Code > 首选项 > 键盘快捷方式 > 输入 **consoleHelper**，将默认 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
-* Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **consoleHelper**，将默认 **ctrl + l** 改为习惯的快捷键即可。
-
-> 快速打开键盘快捷方式(快捷键)
-
-* macOS: `cmd` + `k`,  `cmd` + `s`
-* Windows: `ctrl` + `k`,  `ctrl` + `s`
+安装插件：[VisualStudio - Marketplace](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)，VSCode 最低版本要求： `v1.51.0+`
 
 ## QA
 
