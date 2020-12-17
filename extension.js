@@ -1,21 +1,45 @@
 const vscode = require('vscode')
 
+// TODO: 应该可以获取配置信息，后期可以改为从配置信息中获取变量名
+const SETTINGS_LIST = [
+  {
+    name: 'Prefix Logo',
+    default: '',
+    description: '前缀标识'
+  },
+  {
+    name: 'Color',
+    default: '#bf2c9f',
+    description: '字体颜色'
+  },
+  {
+    name: 'Color Bg',
+    default: 'pink',
+    description: '背景颜色'
+  },
+  {
+    name: 'Font Size',
+    default: '13px',
+    description: '字号大小'
+  },
+  {
+    name: 'Show Semi',
+    default: false,
+    description: '末尾是否加分号'
+  }
+]
+
 // 执行 log 写入
 const insertText = val => {
-  // Todo: 不理解
   const editor = vscode.window.activeTextEditor
   if (!editor) {
     showErrorMessage()
     return
   }
-  // Todo: 不理解
   const { selection } = editor
 
-  // Todo: 不理解
   const range = new vscode.Range(selection.start, selection.end)
-  // Todo: 不理解
   editor.edit(editBuilder => {
-    // Todo: 不理解
     editBuilder.replace(range, val)
   })
 }
@@ -69,9 +93,7 @@ const insertLogStatement = context => {
         return
       }
 
-      // Todo: 不理解
       const { selection } = editor
-      // Todo: 不理解
       const text = editor.document.getText(selection) // 选择的字符
       if (text) {
         // 将选择的字符美化后打印
@@ -102,34 +124,7 @@ const insertLogStatement = context => {
 
   context.subscriptions.push(insert)
 }
-// TODO: 应该可以获取配置信息，后期可以改为从配置信息中获取变量名
-const SETTINGS_LIST = [
-  {
-    name: 'Prefix Logo',
-    default: '',
-    description: '前缀标识'
-  },
-  {
-    name: 'Color',
-    default: '#bf2c9f',
-    description: '字体颜色'
-  },
-  {
-    name: 'Color Bg',
-    default: 'pink',
-    description: '背景颜色'
-  },
-  {
-    name: 'Font Size',
-    default: '13px',
-    description: '字号大小'
-  },
-  {
-    name: 'Show Semi',
-    default: false,
-    description: '末尾是否加分号'
-  }
-]
+
 const getSettingValue = name => {
   const value = vscode.workspace.getConfiguration().get(`consoleHelper.${name}`)
   const len = SETTINGS_LIST.length
@@ -155,11 +150,8 @@ const deleteAllLog = context => {
 
       const document = editor.document
       const documentText = editor.document.getText()
-
       const workspaceEdit = new vscode.WorkspaceEdit()
-
       const logStatements = getAllLogStatements(document, documentText)
-
       deleteFoundLogStatements(workspaceEdit, document.uri, logStatements)
     }
   )
