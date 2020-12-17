@@ -2,7 +2,12 @@
 
 **console helper** — 旨在帮助开发人员编码时更快的输入/移除 log，搭配上醒目的主题，提高开发效率。
 
-## 安装插件
+1. 非常迷你，不占用内存资源
+2. 用完都说 很快啊，比起手动输入 log clg 快太多 香~
+3. 作为懒人一定要试试
+4. 配置性强，可自由配置日志输出
+
+## Install
 
 安装插件：[VisualStudio - Marketplace](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)，VSCode 最低版本要求： `v1.51.0+`
 
@@ -71,7 +76,7 @@
 * macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleHelper**，可自定义配置项。
 * Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleHelper**，可自定义配置项。
 
-## 修改快捷键绑定
+## setting
 
 > 修改快捷绑定(教程)
 
@@ -85,12 +90,12 @@
 
 ## QA
 
-为什么我的不行？
+为什么我的不生效？
 
 > 亲，可能是您的快捷键被占用了~
 > 请打开键盘快捷方式列表，查看您的快捷键是否被占用，删除占用的命令或修改 consoleHelper 绑定的快捷键即可，具体的操作如下：
 
-在键盘快捷方式列表，输入被占用的快捷方式 **cmd + shift + l** ，右键选择删除或修改其他命令。
+在键盘快捷方式列表，输入被占用的快捷方式例如 **cmd + shift + l** ，右键选择删除或修改其他命令。
 
 ## Changelog
 
