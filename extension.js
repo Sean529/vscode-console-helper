@@ -52,7 +52,7 @@ const showErrorMessage = () => {
 // 获取全部 log 语句
 const getAllLogStatements = (document, documentText) => {
   const logStatements = []
-  const logRegex = /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\((.*)\);?/g
+  const logRegex = /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\(([\s\S]*?)\);?/g
   let match
   while ((match = logRegex.exec(documentText))) {
     const matchRange = new vscode.Range(
@@ -64,21 +64,30 @@ const getAllLogStatements = (document, documentText) => {
   return logStatements
 }
 
-// 删除所有找到的 log 语句
-const deleteFoundLogStatements = (workspaceEdit, docUri, logs) => {
-  logs.forEach(log => {
-    workspaceEdit.delete(docUri, log)
-  })
+// 删除成功提示信息
+const deleteSuccessShowMessage = logs => {
+  const message = logs.length
+    ? `${logs.length} console.logs deleted`
+    : `${logs.length} console.log deleted`
+  vscode.window.showInformationMessage(message)
+}
 
-  vscode.workspace.applyEdit(workspaceEdit).then(() => {
-    // 删除成功后提示
-    if (logs.length) {
-      vscode.window.showInformationMessage(
-        `${logs.length} console.logs deleted`
-      )
-    } else {
-      vscode.window.showInformationMessage(`${logs.length} console.log deleted`)
-    }
+// 执行删除 log 每行操作
+const deleteFoundLogLines = (range, edit, document) => {
+  for (let index = range.start.line; index <= range.end.line; index++) {
+    edit.delete(document.lineAt(index).rangeIncludingLineBreak)
+  }
+}
+
+// 删除所有找到的 log 语句
+const deleteFoundLogStatements = logs => {
+  const editor = vscode.window.activeTextEditor
+  const { document } = editor
+  editor.edit(edit => {
+    logs.forEach(range => {
+      deleteFoundLogLines(range, edit, document)
+    })
+    deleteSuccessShowMessage(logs)
   })
 }
 
@@ -150,9 +159,8 @@ const deleteAllLog = context => {
 
       const document = editor.document
       const documentText = editor.document.getText()
-      const workspaceEdit = new vscode.WorkspaceEdit()
       const logStatements = getAllLogStatements(document, documentText)
-      deleteFoundLogStatements(workspaceEdit, document.uri, logStatements)
+      deleteFoundLogStatements(logStatements)
     }
   )
   context.subscriptions.push(deleteAllLogStatements)
