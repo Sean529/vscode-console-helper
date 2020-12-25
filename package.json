@@ -7,7 +7,7 @@
   "repository": "https://github.com/shangZhengXie/console-helper",
   "icon": "static/console-helper.png",
   "engines": {
-    "vscode": "^1.51.0"
+    "vscode": "^1.2.0"
   },
   "keywords": [
     "console",
@@ -70,7 +70,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && !editorHasSelection",
         "args": {
-          "snippet": "console.log('[ $1 ] ->', $1)$0"
+          "snippet": "console.log('[ $1 ]', $1)$0"
         },
         "key": "ctrl+l",
         "mac": "cmd+shift+l"
@@ -103,7 +103,7 @@
         },
         "consoleLog.Prefix Logo": {
           "type": "string",
-          "default": "#",
+          "default": "[ # ]",
           "description": "前缀标识 [ 默认值 # ]\n「 以变量 x 示例，自定义前缀标识仅对 console.log 接收 2/3 个参数有效，console.log() 的第 2 个参数的样式是根据'Color/Color Bg/ Font Size ...'填充 」\n1.若填写 #\n—— console.log 接收 2 个参数: 输出 console.log('x', x)\n—— console.log 接收 3 个参数: 输出 console.log('%cx', 'color: #bf2c9f; background: pink; font-size: 13px;', x)\n2.若填写 AT-[ # ]->\n —— console.log 接收 2 个参数: 输出 console.log('AT-[ x ]->', x)\n —— console.log 接收 3 个参数: 输出 console.log('%cAT-[ x ]->', 'color: #bf2c9f; background: pink; font-size: 13px;', x)\n"
         },
         "consoleLog.Color": {
@@ -135,7 +135,7 @@
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.51.0",
+    "@types/vscode": "^1.2.0",
     "@types/glob": "^7.1.3",
     "@types/mocha": "^8.0.0",
     "@types/node": "^12.11.7",
