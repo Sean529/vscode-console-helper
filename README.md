@@ -3,9 +3,9 @@
 **console helper** — 旨在帮助开发人员编码时更快的输入/移除 log，搭配上醒目的主题，提高开发效率。
 
 1. 迷你插件，**不占用内存资源，本插件不会让您的编辑器变得卡顿**
-2. 用完都说 很快啊 舒服~，比起手动输入 log clg 快太多了 香~
-3. 如果你跟我一样**懒**，那么很适合你
-4. 配置性强，可自由配置日志格式
+2. 一键搞定，告别手打 ~~log clg console.log() console.log('x', x) ...~~
+3. 如果你跟我一样极(lan)客(ai)，那么这款扩展很适合你
+4. 配置性强，可自由配置 log 样式
 
 ## setting
 
@@ -29,25 +29,26 @@
 * [x] 自定义背景颜色
 * [x] 自定义字号大小
 * [x] 可配置末尾是否加分号(默认不加)
+* [x] 支持选择 console.log 的参数数量
 
 ## Usages
-
-### 在当前行输出
-
-> 在当前行输出 `console.log('[  ]', )` 语句，光标聚焦在输入位置，输入变量即可。
-
-![insert](https://qn.xiesz.com/AT/insert.gif)
-
-快捷方式：
-
-* macOS: `cmd` + `shift` + `l`
-* Windows: `ctrl` + `l`
 
 ### 将选中的变量打印
 
 > 选中变量后按下快捷键，会在代码下方插入一行带颜色的 `console` 语句
 
 ![select-insert](https://qn.xiesz.com/AT/select-insert.gif)
+
+快捷方式：
+
+* macOS: `cmd` + `shift` + `l`
+* Windows: `ctrl` + `l`
+
+### 在当前行输出
+
+> 在当前行输出 `console.log('[  ]', )` 语句，光标聚焦在输入位置，输入变量即可。
+
+![insert](https://qn.xiesz.com/AT/insert.gif)
 
 快捷方式：
 
@@ -74,6 +75,25 @@
 * `clog` 输出 `console.log('%c[ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
 
 ![snippet-clog](https://qn.xiesz.com/AT/snippet-clog.gif)
+
+### 选择 console.log 入参数数量
+
+> 配置 console.log 的参数数量
+
+* macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
+* Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
+
+以 x 作为变量示例：
+
+* 选择 [^console.log 接收 1 个参数] 输出 **console.log(x)**
+* 选择 [^console.log 接收 2 个参数] 输出 **console.log('x', x)**
+* 选择 [^console.log 接收 3 个参数] 输出 **console.log('x', 'color: #bf2c9f; background: pink; font-size: 13px; ', x)**
+
+### 配置前缀标识
+
+> 配置前缀标识可以在控制台中，更快速的找到你的日志，唯一标识可区分是谁的日志
+
+配置 demo 已在配置说明中描述，快去配置专属于你的前缀吧
 
 ### 配置项
 
