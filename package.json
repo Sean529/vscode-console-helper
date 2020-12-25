@@ -30,10 +30,7 @@
     "c-log",
     "日志小助手"
   ],
-  "categories": [
-    "Other",
-    "Snippets"
-  ],
+  "categories": ["Other", "Snippets"],
   "activationEvents": [
     "onCommand:consoleHelper.insertLogStatement",
     "onCommand:consoleHelper.deleteAllLogStatements"
@@ -86,25 +83,39 @@
       "type": "object",
       "title": "日志小助手",
       "properties": {
+        "consoleHelper.Number Argument": {
+          "type": "string",
+          "default": "console.log 接收 2 个参数",
+          "enum": [
+            "console.log 接收 1 个参数",
+            "console.log 接收 2 个参数",
+            "console.log 接收 3 个参数"
+          ],
+          "enumDescriptions": [
+            "输出 console.log(x)",
+            "输出 console.log('x', x)",
+            "输出 console.log('x', 'color: #bf2c9f; background: pink; font-size: 13px;', x)"
+          ]
+        },
         "consoleHelper.Prefix Logo": {
           "type": "string",
-          "default": "",
-          "description": "前缀标识"
+          "default": "#",
+          "description": "前缀标识 [ 默认值 # ]\n「 以变量 x 示例，自定义前缀标识仅对 console.log 接收 2/3 个参数有效，console.log() 的第 2 个参数的样式是根据'Color/Color Bg/ Font Size ...'填充 」\n1.若填写 #\n—— console.log 接收 2 个参数: 输出 console.log('x', x)\n—— console.log 接收 3 个参数: 输出 console.log('%cx', 'color: #bf2c9f; background: pink; font-size: 13px;', x)\n2.若填写 AT-[ # ]->\n —— console.log 接收 2 个参数: 输出 console.log('AT-[ x ]->', x)\n —— console.log 接收 3 个参数: 输出 console.log('%cAT-[ x ]->', 'color: #bf2c9f; background: pink; font-size: 13px;', x)\n"
         },
         "consoleHelper.Color": {
           "type": "string",
           "default": "#bf2c9f",
-          "description": "字体颜色(不填默认 #bf2c9f)"
+          "description": "字体颜色 [ HEX or RGBA ]"
         },
         "consoleHelper.Color Bg": {
           "type": "string",
           "default": "pink",
-          "description": "背景颜色(不填默认 pink)"
+          "description": "背景颜色 [ HEX or RGBA ]"
         },
         "consoleHelper.Font Size": {
-          "type": "string",
-          "default": "13px",
-          "description": "字号大小(不填默认 13px)"
+          "type": "number",
+          "default": "13",
+          "description": "字号大小[ 单位 px ]"
         },
         "consoleHelper.Show Semi": {
           "type": "boolean",
