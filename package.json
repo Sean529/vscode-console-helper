@@ -88,7 +88,7 @@
       "properties": {
         "consoleLog.Number Argument": {
           "type": "string",
-          "default": "console.log 接收 2 个参数",
+          "default": "console.log 接收 3 个参数",
           "description": "请选择 console.log 的参数数量",
           "enum": [
             "console.log 接收 1 个参数",
