@@ -37,7 +37,7 @@
 
 > 选中变量后按下快捷键，会在代码下方插入一行带颜色的 `console` 语句
 
-![select-insert](https://qn.xiesz.com/AT/select-insert.gif)
+![select-insert](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/select-insert.gif)
 
 快捷方式：
 
@@ -48,7 +48,7 @@
 
 > 在当前行输出 `console.log('[  ]', )` 语句，光标聚焦在输入位置，输入变量即可。
 
-![insert](https://qn.xiesz.com/AT/insert.gif)
+![insert](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/insert.gif)
 
 快捷方式：
 
@@ -59,7 +59,7 @@
 
 > 删除页面上所有 `log` ，删除后窗口右下角会提示一共删除了几条 `console.log` 语句
 
-![delete-all-log](https://qn.xiesz.com/AT/delete-all-log.gif)
+![delete-all-log](https://github.com/shangZhengXie/vscode-console-helper/blob/master/static/gif/delete-all-log.gif?raw=true)
 
 快捷方式：
 
@@ -70,11 +70,11 @@
 
 * `clg` or `log` 输出 `console.log('[ ] >', )`
 
-![snippet-log](https://qn.xiesz.com/AT/snippet-log.gif)
+![snippet-log](https://github.com/shangZhengXie/vscode-console-helper/blob/master/static/gif/snippet-log.gif)
 
 * `clog` 输出 `console.log('%c[ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
 
-![snippet-clog](https://qn.xiesz.com/AT/snippet-clog.gif)
+![snippet-clog](https://github.com/shangZhengXie/vscode-console-helper/blob/master/static/gif/snippet-clog.gif)
 
 ### 选择 console.log 参数数量
 
@@ -101,7 +101,7 @@
 
 > 自定义小助手 console
 
-![settings](https://qn.xiesz.com/AT/settings.gif)
+![settings](https://github.com/shangZhengXie/vscode-console-helper/blob/master/static/gif/settings.gif)
 
 * macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 * Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
