@@ -119,6 +119,16 @@
 
 在键盘快捷方式列表，输入被占用的快捷方式例如 **cmd + shift + l** ，右键选择删除或修改其他命令。
 
+## 交流群
+
+扫码加群:
+<img width="303" alt="微信群" src="https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/wechat-group.jpg">
+
+若扫码进不去，可加微信拉入 **console helper 日志小助手群**：
+<img width="303" alt="微信号" src="https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/wechat.jpg">
+
+或通过微信号： `AT-0529` 加好友，备注：**日志小助手**
+
 ## Changelog
 
 [CHANGELOG](./CHANGELOG.md)
