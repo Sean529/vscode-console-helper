@@ -59,7 +59,7 @@
 
 > 删除页面上所有 `log` ，删除后窗口右下角会提示一共删除了几条 `console.log` 语句
 
-![delete-all-log](https://github.com/shangZhengXie/vscode-console-helper/blob/master/static/gif/delete-all-log.gif?raw=true)
+![delete-all-log](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/delete-all-log.gif)
 
 快捷方式：
 
@@ -70,11 +70,11 @@
 
 * `clg` or `log` 输出 `console.log('[ ] >', )`
 
-![snippet-log](https://github.com/shangZhengXie/vscode-console-helper/blob/master/static/gif/snippet-log.gif)
+![snippet-log](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/snippet-log.gif)
 
 * `clog` 输出 `console.log('%c[ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
 
-![snippet-clog](https://github.com/shangZhengXie/vscode-console-helper/blob/master/static/gif/snippet-clog.gif)
+![snippet-clog](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/snippet-clog.gif)
 
 ### 选择 console.log 参数数量
 
@@ -101,7 +101,7 @@
 
 > 自定义小助手 console
 
-![settings](https://github.com/shangZhengXie/vscode-console-helper/blob/master/static/gif/settings.gif)
+![settings](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/settings.gif)
 
 * macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 * Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
