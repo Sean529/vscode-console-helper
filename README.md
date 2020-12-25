@@ -76,18 +76,20 @@
 
 ![snippet-clog](https://qn.xiesz.com/AT/snippet-clog.gif)
 
-### 选择 console.log 入参数数量
+### 选择 console.log 参数数量
 
 > 配置 console.log 的参数数量
+
+首先打开配置入口
 
 * macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 * Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 
-以 x 作为变量示例：
+各个选项以 x 作为变量示例：
 
-* 选择 [^console.log 接收 1 个参数] 输出 **console.log(x)**
-* 选择 [^console.log 接收 2 个参数] 输出 **console.log('x', x)**
-* 选择 [^console.log 接收 3 个参数] 输出 **console.log('x', 'color: #bf2c9f; background: pink; font-size: 13px; ', x)**
+* 选择 [^console.log 接收 1 个参数] 输将会在页面上出 **console.log(x)**
+* 选择 [^console.log 接收 2 个参数] 输将会在页面上出 **console.log('x', x)**
+* 选择 [^console.log 接收 3 个参数] 输将会在页面上出 **console.log('x', 'color: #bf2c9f; background: pink; font-size: 13px; ', x)**
 
 ### 配置前缀标识
 
