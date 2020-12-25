@@ -122,10 +122,10 @@
 ## 交流群
 
 扫码加群:
-<img width="303" alt="微信群" src="https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/wechat-group.jpg">
+<img style="display: block" width="303" alt="微信群" src="https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/wechat-group.jpg">
 
 若扫码进不去，可加微信拉入 **console helper 日志小助手群**：
-<img width="303" alt="微信号" src="https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/wechat.jpg">
+<img style="display: block" width="303" alt="微信号" src="https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/wechat.jpg">
 
 或通过微信号： `AT-0529` 加好友，备注：**日志小助手**
 
