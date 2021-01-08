@@ -11,7 +11,7 @@
   },
   "输出带颜色的 log 日志": {
     "prefix": "clog",
-    "body": ["console.log('%c[ ${1} ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '${1}')"],
+    "body": ["console.log('%c [ ${1} ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '${1}')"],
     "description": "输出带颜色的 log 日志"
   }
 }

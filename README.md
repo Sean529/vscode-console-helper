@@ -72,7 +72,7 @@
 
 ![snippet-log](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/snippet-log.gif)
 
-* `clog` 输出 `console.log('%c[ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
+* `clog` 输出 `console.log('%c [ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
 
 ![snippet-clog](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/snippet-clog.gif)
 

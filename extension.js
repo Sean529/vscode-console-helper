@@ -175,7 +175,7 @@ const stylesTransform = customStyles => {
 // 拼接模板
 const tempJoin = (temp, styles, selectVariable) => {
   if (styles) {
-    return `console.log('%c${temp}', '${styles}', ${selectVariable})`
+    return `console.log('%c ${temp}', '${styles}', ${selectVariable})`
   } else if (temp) {
     return `console.log('${temp}', ${selectVariable})`
   }
