@@ -3,3 +3,4 @@ node_modules
 *.vsix
 .history
 NOTE.md
+out/*
