@@ -37,7 +37,7 @@
 
 > 选中变量后按下快捷键，会在代码下方插入一行带颜色的 `console` 语句
 
-![select-insert](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/select-insert.gif)
+![select-insert](https://qn.xiesz.com/AT/2021-01-27-select-insert.gif)
 
 快捷方式：
 
@@ -48,7 +48,7 @@
 
 > 在当前行输出 `console.log('[  ]', )` 语句，光标聚焦在输入位置，输入变量即可。
 
-![insert](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/insert.gif)
+![insert](https://qn.xiesz.com/AT/2021-01-27-insert.gif)
 
 快捷方式：
 
@@ -59,7 +59,7 @@
 
 > 删除页面上所有 `log` ，删除后窗口右下角会提示一共删除了几条 `console.log` 语句
 
-![delete-all-log](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/delete-all-log.gif)
+![delete-all-log](https://qn.xiesz.com/AT/2021-01-27-delete-all-log.gif)
 
 快捷方式：
 
@@ -70,11 +70,11 @@
 
 * `clg` or `log` 输出 `console.log('[ ] >', )`
 
-![snippet-log](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/snippet-log.gif)
+![snippet-log](https://qn.xiesz.com/AT/2021-01-27-snippet-log.gif)
 
 * `clog` 输出 `console.log('%c [ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
 
-![snippet-clog](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/snippet-clog.gif)
+![snippet-clog](https://qn.xiesz.com/AT/2021-01-27-snippet-clog.gif)
 
 ### 选择 console.log 参数数量
 
@@ -101,7 +101,7 @@
 
 > 自定义小助手 console
 
-![settings](https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/gif/settings.gif)
+![settings](https://qn.xiesz.com/AT/2021-01-27-settings.gif)
 
 * macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 * Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
@@ -123,12 +123,10 @@
 
 扫码加群:
 
-<img style="display: block" width="303" alt="微信群" src="https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/wechat-group.jpg">
-
+<img style="display: block" width="303" alt="微信群" src="https://qn.xiesz.com/AT/2021-01-27-wechat-group.jpeg">
 若扫码进不去，可加微信拉入 **console helper 日志小助手群**：
 
-<img style="display: block" width="303" alt="微信号" src="https://raw.githubusercontent.com/shangZhengXie/vscode-console-helper/master/static/wechat.jpg">
-
+<img style="display: block" width="303" alt="微信号" src="https://qn.xiesz.com/AT/2021-01-27-wechat.jpeg">
 或通过微信号： `AT-0529` 加好友，备注：**日志小助手**
 
 ## Changelog
