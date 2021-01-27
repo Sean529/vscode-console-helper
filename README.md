@@ -124,9 +124,11 @@
 扫码加群:
 
 <img style="display: block" width="303" alt="微信群" src="https://qn.xiesz.com/AT/2021-01-27-wechat-group.jpeg">
+
 若扫码进不去，可加微信拉入 **console helper 日志小助手群**：
 
 <img style="display: block" width="303" alt="微信号" src="https://qn.xiesz.com/AT/2021-01-27-wechat.jpeg">
+
 或通过微信号： `AT-0529` 加好友，备注：**日志小助手**
 
 ## Changelog
