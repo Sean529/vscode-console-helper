@@ -158,6 +158,11 @@ const statementSemi = data => {
   return isShowSemi ? `${statement};` : `${statement}`
 }
 
+// 对 size 处理，若无px则添加单位
+const setFontSizeStr = fontSize => {
+  return fontSize.includes('px') ? fontSize : `${fontSize}px`
+}
+
 // log 插入
 const insertLogStatement = context => {
   const insert = commands.registerCommand(
@@ -176,6 +181,7 @@ const insertLogStatement = context => {
         commands.executeCommand('editor.action.insertLineAfter').then(() => {
           const selectVariable = text.replace(/'|"/g, '') // 编辑器中选中的文本（要打印的变量）
           const fontSize = getSettingValue('Font Size')
+          const fontSizeStr = setFontSizeStr(fontSize) // fontSize 的值
           const colorBg = getSettingValue('Color Bg')
           const color = getSettingValue('Color')
           const prefixLogo = getSettingValue('Prefix Logo')
@@ -184,7 +190,7 @@ const insertLogStatement = context => {
           // TODO: 后期这里需要开放为用户自定义更多样式
           // 自定义样式
           const customStyles = {
-            fontSize,
+            fontSize: fontSizeStr,
             colorBg,
             color
           }
