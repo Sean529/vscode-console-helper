@@ -1,4 +1,5 @@
 import { window, Range, commands, workspace } from 'vscode'
+import checkForUpdate from './update'
 import {
   SETTINGS_LIST,
   PLACEHOLDER,
@@ -206,7 +207,6 @@ const insertLogStatement = context => {
       }
     }
   )
-
   context.subscriptions.push(insert)
 }
 
@@ -243,6 +243,7 @@ const deleteAllLog = context => {
 }
 
 export const activate = context => {
+  checkForUpdate()
   insertLogStatement(context)
   deleteAllLog(context)
 }
