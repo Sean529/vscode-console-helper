@@ -26,6 +26,16 @@ export const SETTINGS_LIST = [
     description: '末尾是否加分号'
   },
   {
+    name: 'Show LineCount',
+    default: false,
+    description: '是否显示行号'
+  },
+  {
+    name: 'Show FileName',
+    default: false,
+    description: '是否显示文件名'
+  },
+  {
     name: 'Number Argument',
     default: 'console.log 接收 2 个参数',
     description: 'console.log 接收的变量数量'

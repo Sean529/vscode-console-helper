@@ -70,7 +70,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && !editorHasSelection",
         "args": {
-          "snippet": "console.log('[ $1 ]', $1)$0"
+          "snippet": "console.log('$1')$0"
         },
         "key": "ctrl+l",
         "mac": "cmd+shift+l"
@@ -125,6 +125,16 @@
           "type": "boolean",
           "default": false,
           "description": "末尾是否加分号"
+        },
+        "consoleLog.Show LineCount": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否显示行号"
+        },
+        "consoleLog.Show FileName": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否显示文件名"
         }
       }
     }

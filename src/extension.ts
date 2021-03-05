@@ -70,8 +70,24 @@ const deleteFoundLogStatements = logs => {
 }
 
 // 格式化前缀
-const prefixFormat = ({ selectVariable, prefixLogo, statement }) => {
+const prefixFormat = ({
+  isShowLineCount,
+  isShowFileName,
+  fileName,
+  lineCount,
+  selectVariable,
+  prefixLogo,
+  statement
+}) => {
+  prefixLogo = joinLineCount({
+    prefixLogo,
+    isShowLineCount,
+    lineCount,
+    fileName,
+    isShowFileName
+  })
   if (!prefixLogo || prefixLogo === '#') {
+    // '' / '#'
     // 未填写或填写的是 #
     return `${selectVariable}`
   } else if (prefixLogo.includes('#')) {
@@ -82,6 +98,33 @@ const prefixFormat = ({ selectVariable, prefixLogo, statement }) => {
     return prefixLogo
   }
   return statement
+}
+
+const joinLineCount = ({
+  prefixLogo,
+  isShowLineCount,
+  lineCount,
+  fileName,
+  isShowFileName
+}) => {
+  let template = prefixLogo
+  if (isShowLineCount) {
+    if (!prefixLogo || prefixLogo === '#') {
+      template = `${lineCount}`
+    } else {
+      template = `${lineCount}-${prefixLogo}`
+    }
+  }
+
+  if (isShowFileName) {
+    fileName = fileName.replace(/(.*\/)*([^.]+)/i, '$2')
+    if (template) {
+      template = `「${fileName}」-${template}`
+    } else {
+      template = `「${fileName}」`
+    }
+  }
+  return template
 }
 
 // 对象深度克隆
@@ -139,24 +182,42 @@ const tempJoin = (temp, styles, selectVariable) => {
 }
 
 // 语句末尾是否加分号
-const statementSemi = data => {
-  const {
-    selectVariable,
-    isShowSemi,
-    prefixLogo,
-    numberArgument,
-    customStyles
-  } = data
+const joinStatement = data => {
+  const { isShowSemi } = data
+  return joinSemi(isShowSemi, joinTemplateStr(data))
+}
 
+const joinSemi = (isShowSemi, statement) => {
+  return isShowSemi ? `${statement};` : `${statement}`
+}
+
+const joinTemplateStr = ({
+  selectVariable,
+  prefixLogo,
+  numberArgument,
+  customStyles,
+  isShowLineCount,
+  isShowFileName,
+  fileName,
+  lineCount
+}) => {
   let statement = tempJoin('', '', selectVariable)
-  const temp = prefixFormat({ selectVariable, prefixLogo, statement })
+  const temp = prefixFormat({
+    isShowLineCount,
+    isShowFileName,
+    fileName,
+    lineCount,
+    selectVariable,
+    prefixLogo,
+    statement
+  })
   if (numberArgument === NUMBER_ARGUMENT.twoArgument) {
     statement = tempJoin(temp, '', selectVariable)
   } else if (numberArgument === NUMBER_ARGUMENT.threeArgument) {
-    const styles = stylesTransform(customStyles) // ''
+    const styles = stylesTransform(customStyles)
     statement = tempJoin(temp, styles, selectVariable)
   }
-  return isShowSemi ? `${statement};` : `${statement}`
+  return statement
 }
 
 // 对 size 处理，若无px则添加单位
@@ -187,6 +248,8 @@ const insertLogStatement = context => {
           const color = getSettingValue('Color')
           const prefixLogo = getSettingValue('Prefix Logo')
           const isShowSemi = getSettingValue('Show Semi')
+          const isShowLineCount = getSettingValue('Show LineCount')
+          const isShowFileName = getSettingValue('Show FileName')
           const numberArgument = getSettingValue('Number Argument')
           // TODO: 后期这里需要开放为用户自定义更多样式
           // 自定义样式
@@ -195,12 +258,17 @@ const insertLogStatement = context => {
             colorBg,
             color
           }
-          const logToInsert = statementSemi({
+          const { fileName, lineCount } = window.activeTextEditor.document
+          const logToInsert = joinStatement({
             selectVariable,
             isShowSemi,
             prefixLogo,
             numberArgument,
-            customStyles
+            customStyles,
+            isShowLineCount,
+            isShowFileName,
+            lineCount,
+            fileName
           })
           insertText(logToInsert)
         })
