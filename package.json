@@ -70,7 +70,7 @@
         "command": "editor.action.insertSnippet",
         "when": "editorTextFocus && !editorHasSelection",
         "args": {
-          "snippet": "console.log('$1')$0"
+          "snippet": "console.log('[ $1 ]', $1)$0"
         },
         "key": "ctrl+l",
         "mac": "cmd+shift+l"
