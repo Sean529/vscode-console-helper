@@ -126,11 +126,6 @@
           "default": false,
           "description": "末尾是否加分号"
         },
-        "consoleLog.Show LineCount": {
-          "type": "boolean",
-          "default": false,
-          "description": "是否显示行号"
-        },
         "consoleLog.Show FileName": {
           "type": "boolean",
           "default": false,
