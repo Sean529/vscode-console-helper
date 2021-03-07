@@ -72,9 +72,9 @@ const deleteFoundLogStatements = logs => {
 // 格式化前缀
 const prefixFormat = ({
   isShowLineCount,
-  isShowFileName,
+  selectFileName,
   fileName,
-  lineCount,
+  lineNumber,
   selectVariable,
   prefixLogo,
   statement
@@ -82,9 +82,9 @@ const prefixFormat = ({
   prefixLogo = joinLineCount({
     prefixLogo,
     isShowLineCount,
-    lineCount,
+    lineNumber,
     fileName,
-    isShowFileName
+    selectFileName
   })
   if (!prefixLogo || prefixLogo === '#') {
     // '' / '#'
@@ -103,28 +103,41 @@ const prefixFormat = ({
 const joinLineCount = ({
   prefixLogo,
   isShowLineCount,
-  lineCount,
+  lineNumber,
   fileName,
-  isShowFileName
+  selectFileName
 }) => {
   let template = prefixLogo
   if (isShowLineCount) {
     if (!prefixLogo || prefixLogo === '#') {
-      template = `${lineCount}`
+      template = `${lineNumber}`
     } else {
-      template = `${lineCount}-${prefixLogo}`
+      template = `${prefixLogo}-${lineNumber}`
     }
   }
-
-  if (isShowFileName) {
-    fileName = fileName.replace(/(.*\/)*([^.]+)/i, '$2')
+  if (selectFileName !== '不打印' || !selectFileName) {
+    fileName = switchFileName(selectFileName, fileName)
     if (template) {
-      template = `「${fileName}」-${template}`
+      template = `${template}-「${fileName}」`
     } else {
       template = `「${fileName}」`
     }
   }
   return template
+}
+
+const switchFileName = (selectFileName, fileName) => {
+  switch (selectFileName) {
+    case '打印文件名':
+      // 完成
+      return fileName.replace(/(.*\/)*([^.]+).*/gi, '$2')
+    case '打印文件名+文件后缀名':
+      // 完成
+      return fileName.replace(/(.*\/)*([^.]+)/gi, '$2')
+    case '打印完整路径':
+      // 完成
+      return fileName
+  }
 }
 
 // 对象深度克隆
@@ -197,16 +210,16 @@ const joinTemplateStr = ({
   numberArgument,
   customStyles,
   isShowLineCount,
-  isShowFileName,
+  selectFileName,
   fileName,
-  lineCount
+  lineNumber
 }) => {
   let statement = tempJoin('', '', selectVariable)
   const temp = prefixFormat({
     isShowLineCount,
-    isShowFileName,
+    selectFileName,
     fileName,
-    lineCount,
+    lineNumber,
     selectVariable,
     prefixLogo,
     statement
@@ -248,17 +261,18 @@ const insertLogStatement = context => {
           const color = getSettingValue('Color')
           const prefixLogo = getSettingValue('Prefix Logo')
           const isShowSemi = getSettingValue('Show Semi')
-          const isShowLineCount = getSettingValue('Show LineCount')
-          const isShowFileName = getSettingValue('Show FileName')
+          const isShowLineCount = getSettingValue('Show LineNumber')
+          const selectFileName = getSettingValue('Select FileName')
           const numberArgument = getSettingValue('Number Argument')
-          // TODO: 后期这里需要开放为用户自定义更多样式
           // 自定义样式
           const customStyles = {
             fontSize: fontSizeStr,
             colorBg,
             color
           }
-          const { fileName, lineCount } = window.activeTextEditor.document
+          const { fileName } = window.activeTextEditor.document
+          console.log('%c 「extension.ts」-342-AT-[ fileName ]', 'font-size:13px; background:#de4307; color:#f6d04d;', fileName)
+          const lineNumber = selection.end.line + 2 // console 所在的行号
           const logToInsert = joinStatement({
             selectVariable,
             isShowSemi,
@@ -266,8 +280,8 @@ const insertLogStatement = context => {
             numberArgument,
             customStyles,
             isShowLineCount,
-            isShowFileName,
-            lineCount,
+            selectFileName,
+            lineNumber,
             fileName
           })
           insertText(logToInsert)

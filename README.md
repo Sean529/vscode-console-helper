@@ -2,10 +2,10 @@
 
 **console helper** — 旨在帮助开发人员编码时更快的输入/移除 log，搭配上醒目的主题，提高开发效率。
 
-1. 迷你插件，**不占用内存资源，本插件不会让您的编辑器变得卡顿**
-2. 一键搞定，告别手打 ~~log clg console.log() console.log('x', x) ...~~
+1. 一键搞定，告别手打 ~~log clg console.log() console.log('AT', AT) ...~~
+2. 配置性强，可自由配置 log 样式
 3. 如果你跟我一样极(lan)客(ai)，那么这款扩展很适合你
-4. 配置性强，可自由配置 log 样式
+4. 迷你插件，**不占用内存资源，本插件不会让您的编辑器变得卡顿**
 
 ## setting
 
@@ -23,13 +23,15 @@
 
 * [x] 快捷输出 log
 * [x] 快捷删除当前页面中所有 log
-* [x] 支持代码片段
 * [x] 自定义前缀标识
 * [x] 自定义字体颜色
 * [x] 自定义背景颜色
 * [x] 自定义字号大小
-* [x] 可配置末尾是否加分号(默认不加)
+* [x] 支持显示行号
+* [x] 支持显示文件名
+* [x] 支持配置末尾是否分号(默认无分号)
 * [x] 支持选择 console.log 的参数数量
+* [x] 支持代码片段
 
 ## Usages
 
@@ -37,34 +39,34 @@
 
 > 选中变量后按下快捷键，会在代码下方插入一行带颜色的 `console` 语句
 
-![select-insert](https://qn.xiesz.com/AT/2021-01-27-select-insert.gif)
-
 快捷方式：
 
 * macOS: `cmd` + `shift` + `l`
 * Windows: `ctrl` + `l`
+
+![select-insert](https://qn.xiesz.com/AT/2021-01-27-select-insert.gif)
 
 ### 在当前行输出
 
 > 在当前行输出 `console.log('[  ]', )` 语句，光标聚焦在输入位置，输入变量即可。
 
-![insert](https://qn.xiesz.com/AT/2021-01-27-insert.gif)
-
 快捷方式：
 
 * macOS: `cmd` + `shift` + `l`
 * Windows: `ctrl` + `l`
 
+![insert](https://qn.xiesz.com/AT/2021-01-27-insert.gif)
+
 ### 快捷删除当前页面中所有 log
 
 > 删除页面上所有 `log` ，删除后窗口右下角会提示一共删除了几条 `console.log` 语句
-
-![delete-all-log](https://qn.xiesz.com/AT/2021-01-27-delete-all-log.gif)
 
 快捷方式：
 
 * macOS: `cmd` + `shift` + `d`
 * Windows: `ctrl` + `shift` + `d`
+
+![delete-all-log](https://qn.xiesz.com/AT/2021-01-27-delete-all-log.gif)
 
 ### 代码片段
 
@@ -85,11 +87,11 @@
 * macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 * Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 
-各个选项以 x 作为变量示例：
+各个选项以 AT 作为变量示例：
 
-* 选择 [^console.log 接收 1 个参数] 输将会在页面上出 **console.log(x)**
-* 选择 [^console.log 接收 2 个参数] 输将会在页面上出 **console.log('x', x)**
-* 选择 [^console.log 接收 3 个参数] 输将会在页面上出 **console.log('x', 'color: #bf2c9f; background: pink; font-size: 13px; ', x)**
+* 选择 [^console.log 接收 1 个参数] 输将会在页面上出 **console.log(AT)**
+* 选择 [^console.log 接收 2 个参数] 输将会在页面上出 **console.log('AT', AT)**
+* 选择 [^console.log 接收 3 个参数] 输将会在页面上出 **console.log('AT', 'color: #bf2c9f; background: pink; font-size: 13px; ', AT)**
 
 ### 配置前缀标识
 
@@ -101,10 +103,12 @@
 
 > 自定义小助手 console
 
-![settings](https://qn.xiesz.com/AT/2021-01-27-settings.gif)
+快捷方式：
 
 * macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 * Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
+
+![settings](https://qn.xiesz.com/AT/2021-01-27-settings.gif)
 
 ## Install
 

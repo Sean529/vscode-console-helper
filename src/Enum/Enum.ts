@@ -26,14 +26,14 @@ export const SETTINGS_LIST = [
     description: '末尾是否加分号'
   },
   {
-    name: 'Show LineCount',
+    name: 'Show LineNumber',
     default: false,
     description: '是否显示行号'
   },
   {
-    name: 'Show FileName',
-    default: false,
-    description: '是否显示文件名'
+    name: 'Select FileName',
+    default: '不打印',
+    description: '是否打印文件名'
   },
   {
     name: 'Number Argument',
