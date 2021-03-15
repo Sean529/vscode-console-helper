@@ -1,6 +1,6 @@
 # console-helper（日志小助手）
 
-**console helper** — 旨在帮助开发人员编码时更快的输入/移除 log，搭配上醒目的主题，提高开发效率。
+**console helper** — 帮助开发者更快的输入/移除 log，醒目的主题搭配，极大的提高开发效率。
 
 1. 一键搞定，告别手打 ~~log clg console.log() console.log('AT', AT) ...~~
 2. 配置性强，可自由配置 log 样式
