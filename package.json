@@ -103,6 +103,19 @@
             "示例：console.log('「/Users/at/Desktop/console.js」', AT)"
           ]
         },
+        "consoleLog.Select Quotes": {
+          "type": "string",
+          "default": "single",
+          "description": "请选择单引号或双引号",
+          "enum": [
+            "single",
+            "double"
+          ],
+          "enumDescriptions": [
+            "单引号",
+            "双引号"
+          ]
+        },
         "consoleLog.Number Argument": {
           "type": "string",
           "default": "console.log 接收 3 个参数",

@@ -39,6 +39,11 @@ export const SETTINGS_LIST = [
     name: 'Number Argument',
     default: 'console.log 接收 2 个参数',
     description: 'console.log 接收的变量数量'
+  },
+  {
+    name: 'Select Quotes',
+    default: 'single',
+    description: '请选择单引号或双引号'
   }
 ]
 // 变量占位符

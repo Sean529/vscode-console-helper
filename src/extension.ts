@@ -255,6 +255,7 @@ const insertLogStatement = context => {
         // 将选择的字符美化后打印
         commands.executeCommand('editor.action.insertLineAfter').then(() => {
           const selectVariable = text.replace(/'|"/g, '') // 编辑器中选中的文本（要打印的变量）
+          // 获取配置信息
           const fontSize = getSettingValue('Font Size')
           const fontSizeStr = setFontSizeStr(fontSize) // fontSize 的值
           const colorBg = getSettingValue('Color Bg')
@@ -271,7 +272,6 @@ const insertLogStatement = context => {
             color
           }
           const { fileName } = window.activeTextEditor.document
-          console.log('%c 「extension.ts」-342-AT-[ fileName ]', 'font-size:13px; background:#de4307; color:#f6d04d;', fileName)
           const lineNumber = selection.end.line + 2 // console 所在的行号
           const logToInsert = joinStatement({
             selectVariable,
@@ -284,12 +284,20 @@ const insertLogStatement = context => {
             lineNumber,
             fileName
           })
-          insertText(logToInsert)
+          // 根据配置处理单双引号
+          const logText = quotesFormat(logToInsert)
+          insertText(logText)
         })
       }
     }
   )
   context.subscriptions.push(insert)
+}
+
+// 根据配置处理单双引号
+const quotesFormat = (logToInsert) => {
+  const selectQuotes = getSettingValue('Select Quotes') // 获取单双引号用配置信息
+  return selectQuotes === 'single' ? logToInsert : logToInsert.split("'").join('"')
 }
 
 const getSettingValue = name => {
