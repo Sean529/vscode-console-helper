@@ -12,7 +12,7 @@ export default () => {
     )
     .then(res => {
       const [newTag] = res.data
-      const latestVersion = newTag.name.slice(1) // git release 版本号
+      const latestVersion = newTag.name // git release 版本号 / 2.4.3 注意版本号不要带前缀
       if (compareVersions(version, latestVersion) === -1) {
         // 若插件的版本号小于 git release 版本则触发插件升级提醒
         window
