@@ -1,11 +1,11 @@
-import { window, Range, commands, workspace } from 'vscode'
+import { window, Range, commands } from 'vscode'
 import checkForUpdate from './update'
-import {
-  SETTINGS_LIST,
-  PLACEHOLDER,
-  NUMBER_ARGUMENT,
-  STYLES
-} from './Enum/Enum'
+import { NUMBER_ARGUMENT } from './Enum/Enum'
+import { quotesFormat } from './quotesFormat'
+import { getSettingValue } from './getSettingValue'
+import { prefixFormat } from './prefixFormat'
+import { stylesTransform } from './stylesTransform'
+import { tempJoin } from './tempJoin'
 
 // 执行 log 写入
 const insertText = val => {
@@ -67,131 +67,6 @@ const deleteFoundLogStatements = logs => {
     })
     deleteSuccessShowMessage(logs)
   })
-}
-
-// 格式化前缀
-const prefixFormat = ({
-  isShowLineCount,
-  selectFileName,
-  fileName,
-  lineNumber,
-  selectVariable,
-  prefixLogo,
-  statement
-}) => {
-  prefixLogo = joinLineCount({
-    prefixLogo,
-    isShowLineCount,
-    lineNumber,
-    fileName,
-    selectFileName
-  })
-  if (!prefixLogo || prefixLogo === '#') {
-    // '' / '#'
-    // 未填写或填写的是 #
-    return `${selectVariable}`
-  } else if (prefixLogo.includes('#')) {
-    // 正确填写，替换占位符
-    return prefixLogo.replace(PLACEHOLDER, selectVariable)
-  } else if (!prefixLogo.includes('#')) {
-    // 有填写且未填写占位符
-    return prefixLogo
-  }
-  return statement
-}
-
-const joinLineCount = ({
-  prefixLogo,
-  isShowLineCount,
-  lineNumber,
-  fileName,
-  selectFileName
-}) => {
-  let template = prefixLogo
-  if (isShowLineCount) {
-    if (!prefixLogo || prefixLogo === '#') {
-      template = `${lineNumber}`
-    } else {
-      template = `${prefixLogo}-${lineNumber}`
-    }
-  }
-  if (selectFileName !== '不打印' || !selectFileName) {
-    fileName = switchFileName(selectFileName, fileName)
-    if (template) {
-      template = `${template}-「${fileName}」`
-    } else {
-      template = `「${fileName}」`
-    }
-  }
-  return template
-}
-
-const switchFileName = (selectFileName, fileName) => {
-  switch (selectFileName) {
-    case '打印文件名':
-      // 完成
-      return fileName.replace(/(.*\/)*([^.]+).*/gi, '$2')
-    case '打印文件名+文件后缀名':
-      // 完成
-      return fileName.replace(/(.*\/)*([^.]+)/gi, '$2')
-    case '打印完整路径':
-      // 完成
-      return fileName
-  }
-}
-
-// 对象深度克隆
-const cloneDeep = obj => {
-  const copy = Object.create(Object.getPrototypeOf(obj))
-  const propNames = Object.getOwnPropertyNames(obj)
-  propNames.forEach(name => {
-    const desc = Object.getOwnPropertyDescriptor(obj, name)
-    Object.defineProperty(copy, name, desc)
-  })
-  return copy
-}
-
-// 判断对象是否为空
-const isEmpty = obj => {
-  return Object.keys(obj).length === 0
-}
-
-// 把对象的空值删除
-const filterEmptyObj = obj => {
-  for (const key in obj) {
-    if (obj[key] === '') {
-      delete obj[key]
-    }
-  }
-  return obj
-}
-
-// 样式对象转为字符串
-const stylesTransform = customStyles => {
-  // 将对象中为空的属性删除，参数是引用类型，避免改变实参，这了进行深度 clone
-  const styles = filterEmptyObj(cloneDeep(customStyles))
-  if (isEmpty(styles)) {
-    return ''
-  }
-
-  let styleTemp = ''
-  for (const key in styles) {
-    const styleKey = STYLES[`${key}`]
-    const styleValue = styles[key]
-    styleTemp += `${styleKey}:${styleValue}; `
-  }
-  styleTemp = styleTemp.substring(0, styleTemp.length - 1) // 移除末尾的空格
-  return styleTemp
-}
-
-// 拼接模板
-const tempJoin = (temp, styles, selectVariable) => {
-  if (styles) {
-    return `console.log('%c ${temp}', '${styles}', ${selectVariable})`
-  } else if (temp) {
-    return `console.log('${temp}', ${selectVariable})`
-  }
-  return `console.log(${selectVariable})`
 }
 
 // 语句末尾是否加分号
@@ -292,24 +167,6 @@ const insertLogStatement = context => {
     }
   )
   context.subscriptions.push(insert)
-}
-
-// 根据配置处理单双引号
-const quotesFormat = (logToInsert) => {
-  const selectQuotes = getSettingValue('Select Quotes') // 获取单双引号用配置信息
-  return selectQuotes === 'single' ? logToInsert : logToInsert.split("'").join('"')
-}
-
-const getSettingValue = name => {
-  const value = workspace.getConfiguration().get(`consoleLog.${name}`)
-  const len = SETTINGS_LIST.length
-  for (let i = 0; i < len; i++) {
-    const item = SETTINGS_LIST[i]
-    if (item.name === name) {
-      return value || item.default
-    }
-  }
-  return ''
 }
 
 // 删除页面中全部 log
