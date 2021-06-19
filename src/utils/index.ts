@@ -23,3 +23,8 @@ export const filterEmptyObj = obj => {
   }
   return obj
 }
+
+// 对 size 处理，若无px则添加单位
+export const setFontSizeStr = fontSize => {
+  return fontSize.includes('px') ? fontSize : `${fontSize}px`
+}
