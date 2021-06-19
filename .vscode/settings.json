@@ -1,0 +1,28 @@
+{
+  // 格式化文档方式
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode"
+  },
+  "editor.rulers": [140],
+  "editor.tabSize": 2,
+  "prettier.printWidth": 140,
+  "prettier.semi": false
+}
