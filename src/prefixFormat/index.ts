@@ -1,4 +1,5 @@
 import { PLACEHOLDER } from '../Enum/Enum'
+import { getSettingValue } from '../getSettingValue'
 // 格式化前缀
 export const prefixFormat = ({
   isShowLineCount,
@@ -21,6 +22,15 @@ export const prefixFormat = ({
     // 未填写或填写的是 #
     return `${selectVariable}`
   } else if (prefixLogo.includes('#')) {
+    // 若是双引号，则变量要改为单引号；若是单引号，则变量要改为双引号
+    const selectQuotes = getSettingValue('Select Quotes') // 获取单双引号用配置信息
+    if (selectQuotes === 'double') {
+      selectVariable = selectVariable.replace(/\"/g, "'")
+      // 若是双引号，则变量要改为单引号
+    } else {
+      // 若是单引号，则变量要改为双引号
+      selectVariable = selectVariable.replace(/\'/g, '"')
+    }
     // 正确填写，替换占位符
     return prefixLogo.replace(PLACEHOLDER, selectVariable)
   } else if (!prefixLogo.includes('#')) {
@@ -39,19 +49,14 @@ const joinLineCount = ({
 }) => {
   let template = prefixLogo
   if (isShowLineCount) {
-    if (!prefixLogo || prefixLogo === '#') {
-      template = `${lineNumber}`
-    } else {
-      template = `${prefixLogo}-${lineNumber}`
-    }
+    template =
+      !prefixLogo || prefixLogo === '#'
+        ? `${lineNumber}`
+        : `${prefixLogo}-${lineNumber}`
   }
   if (selectFileName !== '不打印' || !selectFileName) {
     fileName = switchFileName(selectFileName, fileName)
-    if (template) {
-      template = `${template}-「${fileName}」`
-    } else {
-      template = `「${fileName}」`
-    }
+    template = template ? `${template}-「${fileName}」` : `「${fileName}」`
   }
   return template
 }
