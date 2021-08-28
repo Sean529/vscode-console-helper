@@ -30,13 +30,11 @@
     "c-log",
     "日志小助手"
   ],
-  "categories": [
-    "Other",
-    "Snippets"
-  ],
+  "categories": ["Other", "Snippets"],
   "activationEvents": [
     "onCommand:consoleLog.insertLogStatement",
-    "onCommand:consoleLog.deleteAllLogStatements"
+    "onCommand:consoleLog.deleteAllLogStatements",
+    "onCommand:consoleLog.insertValue"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -52,6 +50,10 @@
       {
         "command": "consoleLog.deleteAllLogStatements",
         "title": "删除当前文件中全部的 console.log 语句"
+      },
+      {
+        "command": "consoleLog.insertValue",
+        "title": "consoleLog.insertValue"
       }
     ],
     "keybindings": [
@@ -74,6 +76,12 @@
         },
         "key": "ctrl+l",
         "mac": "cmd+shift+l"
+      },
+      {
+        "command": "consoleLog.insertValue",
+        "when": "editorTextFocus",
+        "key": "ctrl+m",
+        "mac": "cmd+m"
       }
     ],
     "snippets": [
@@ -107,14 +115,8 @@
           "type": "string",
           "default": "single",
           "description": "请选择单引号或双引号",
-          "enum": [
-            "single",
-            "double"
-          ],
-          "enumDescriptions": [
-            "单引号",
-            "双引号"
-          ]
+          "enum": ["single", "double"],
+          "enumDescriptions": ["单引号", "双引号"]
         },
         "consoleLog.Number Argument": {
           "type": "string",
