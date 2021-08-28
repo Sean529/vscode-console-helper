@@ -1,7 +1,9 @@
-import { NUMBER_ARGUMENT } from '../Enum/Enum'
-import { prefixFormat } from '../prefixFormat'
-import { stylesTransform } from '../stylesTransform'
-import { tempJoin } from '../tempJoin'
+import {
+  NUMBER_ARGUMENT,
+  prefixFormat,
+  stylesTransform,
+  tempJoin
+} from '../index'
 
 // 语句末尾是否加分号
 export const joinStatement = data => {

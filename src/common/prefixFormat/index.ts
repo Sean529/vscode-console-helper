@@ -1,5 +1,4 @@
-import { PLACEHOLDER } from '../Enum/Enum'
-import { getSettingValue } from '../getSettingValue'
+import { PLACEHOLDER, getSettingValue } from '../index'
 // 格式化前缀
 export const prefixFormat = ({
   isShowLineCount,

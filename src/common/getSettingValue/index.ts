@@ -1,4 +1,4 @@
-import { SETTINGS_LIST } from '../Enum/Enum'
+import { SETTINGS_LIST } from '../index'
 import { workspace } from 'vscode'
 export const getSettingValue = name => {
   const value = workspace.getConfiguration().get(`consoleLog.${name}`)
