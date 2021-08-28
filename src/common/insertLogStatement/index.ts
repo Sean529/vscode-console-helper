@@ -1,10 +1,12 @@
 import { window, commands } from 'vscode'
-import { quotesFormat } from '../quotesFormat'
-import { getSettingValue } from '../getSettingValue'
-import { setFontSizeStr } from '../utils'
-import { joinStatement } from '../joinStatement'
-import { showErrorMessage } from '../showErrorMessage'
-import { insertText } from '../insertText'
+import { setFontSizeStr } from '../../utils'
+import {
+  quotesFormat,
+  getSettingValue,
+  joinStatement,
+  showErrorMessage,
+  insertText
+} from '../index'
 
 // log 插入
 export const insertLogStatement = context => {
@@ -18,11 +20,10 @@ export const insertLogStatement = context => {
       }
 
       const { selection } = editor
-      const text = editor.document.getText(selection) // 选择的字符
-      if (text) {
+      const selectVariable = editor.document.getText(selection) // 选择的字符
+      if (selectVariable) {
         // 将选择的字符美化后打印
         commands.executeCommand('editor.action.insertLineAfter').then(() => {
-          const selectVariable = text // 编辑器中选中的文本（要打印的变量）
           // 获取配置信息
           const fontSize = getSettingValue('Font Size')
           const fontSizeStr = setFontSizeStr(fontSize) // fontSize 的值

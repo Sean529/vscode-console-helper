@@ -2,7 +2,7 @@ import { commands, extensions, window } from 'vscode'
 import axios from 'axios'
 const compareVersions = require('compare-versions')
 
-export default () => {
+export const checkForUpdate = () => {
   const consoleHelperExt = extensions.getExtension('at-9420.console-helper')
   const version = consoleHelperExt?.packageJSON?.version
   // tags 没找到分页查询，数据大的时候考虑删除过旧的tags

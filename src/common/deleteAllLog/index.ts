@@ -1,5 +1,5 @@
 import { window, Range, commands } from 'vscode'
-import { showErrorMessage } from '../showErrorMessage'
+import { showErrorMessage } from '../index'
 
 // 删除页面中全部 log
 export const deleteAllLog = context => {
