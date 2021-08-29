@@ -2,7 +2,7 @@
   "name": "console-helper",
   "displayName": "console helper",
   "description": "console helper — 帮助开发者更快的输入/移除 log，醒目的主题搭配，极大的提高开发效率。",
-  "version": "2.4.10",
+  "version": "2.4.11",
   "publisher": "AT-9420",
   "repository": "https://github.com/shangZhengXie/console-helper",
   "icon": "static/console-helper.png",
@@ -30,7 +30,10 @@
     "c-log",
     "日志小助手"
   ],
-  "categories": ["Other", "Snippets"],
+  "categories": [
+    "Other",
+    "Snippets"
+  ],
   "activationEvents": [
     "onCommand:consoleLog.insertLogStatement",
     "onCommand:consoleLog.deleteAllLogStatements",
@@ -115,8 +118,14 @@
           "type": "string",
           "default": "single",
           "description": "请选择单引号或双引号",
-          "enum": ["single", "double"],
-          "enumDescriptions": ["单引号", "双引号"]
+          "enum": [
+            "single",
+            "double"
+          ],
+          "enumDescriptions": [
+            "单引号",
+            "双引号"
+          ]
         },
         "consoleLog.Number Argument": {
           "type": "string",
