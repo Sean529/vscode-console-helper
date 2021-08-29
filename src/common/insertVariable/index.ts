@@ -10,13 +10,13 @@ import {
 
 const { activeTextEditor, onDidChangeActiveTextEditor } = window
 let currentEditor: TextEditor
-export const insertValue = context => {
+export const insertVariable = context => {
   currentEditor = activeTextEditor
   // 当触发文本时重新赋值
   onDidChangeActiveTextEditor(editor => (currentEditor = editor))
   // 订阅命令
   context.subscriptions.push(
-    commands.registerTextEditorCommand('consoleLog.insertValue', () => handle())
+    commands.registerTextEditorCommand('consoleLog.insertVariable', () => handle())
   )
 }
 

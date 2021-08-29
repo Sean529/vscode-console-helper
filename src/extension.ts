@@ -2,13 +2,13 @@ import {
   checkForUpdate,
   deleteAllLog,
   insertLogStatement,
-  insertValue
+  insertVariable
 } from './common'
 
 export const activate = context => {
   checkForUpdate()
   insertLogStatement(context)
-  insertValue(context)
+  insertVariable(context)
   deleteAllLog(context)
 }
 

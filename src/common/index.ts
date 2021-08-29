@@ -10,7 +10,7 @@ import { showErrorMessage } from './showErrorMessage'
 import { stylesTransform } from './stylesTransform'
 import { tempJoin } from './tempJoin'
 import { checkForUpdate } from './checkForUpdate'
-import { insertValue } from './insertValue'
+import { insertVariable } from './insertVariable'
 
 export {
   SETTINGS_LIST,
@@ -28,5 +28,5 @@ export {
   stylesTransform,
   tempJoin,
   checkForUpdate,
-  insertValue
+  insertVariable
 }
