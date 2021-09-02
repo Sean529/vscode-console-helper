@@ -82,7 +82,7 @@
       },
       {
         "command": "consoleLog.insertVariable",
-        "key": "ctrl+y",
+        "key": "",
         "mac": "cmd+y",
         "when": "editorTextFocus"
       }
