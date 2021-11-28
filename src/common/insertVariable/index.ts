@@ -17,7 +17,9 @@ export const insertVariable = context => {
   onDidChangeActiveTextEditor(editor => (currentEditor = editor))
   // 订阅命令
   context.subscriptions.push(
-    commands.registerTextEditorCommand('consoleLog.insertVariable', () => handle())
+    commands.registerTextEditorCommand('consoleLog.insertVariable', () =>
+      handleCursorInsert()
+    )
   )
 }
 
@@ -34,7 +36,7 @@ interface WrapData {
 }
 
 // 处理回调事件
-function handle () {
+export const handleCursorInsert = () => {
   new Promise((resolve, reject) => {
     const doc = currentEditor.document
     // 选中的文本对象

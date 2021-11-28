@@ -36,8 +36,7 @@
   ],
   "activationEvents": [
     "onCommand:consoleLog.insertLogStatement",
-    "onCommand:consoleLog.deleteAllLogStatements",
-    "onCommand:consoleLog.insertVariable"
+    "onCommand:consoleLog.deleteAllLogStatements"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -64,21 +63,12 @@
         "command": "consoleLog.insertLogStatement",
         "key": "ctrl+l",
         "mac": "cmd+shift+l",
-        "when": "editorTextFocus && editorHasSelection"
+        "when": "editorTextFocus"
       },
       {
         "command": "consoleLog.deleteAllLogStatements",
         "key": "ctrl+shift+d",
         "mac": "cmd+shift+d"
-      },
-      {
-        "command": "editor.action.insertSnippet",
-        "when": "editorTextFocus && !editorHasSelection",
-        "args": {
-          "snippet": "console.log('[ $1 ]', $1)$0"
-        },
-        "key": "ctrl+l",
-        "mac": "cmd+shift+l"
       },
       {
         "command": "consoleLog.insertVariable",
