@@ -1,3 +1,6 @@
+import { window } from 'vscode'
+import { setFontSizeStr } from '../../utils'
+import { getSettingValue } from '../getSettingValue'
 import {
   NUMBER_ARGUMENT,
   prefixFormat,
@@ -15,16 +18,21 @@ const joinSemi = (isShowSemi, statement) => {
   return isShowSemi ? `${statement};` : `${statement}`
 }
 
-const joinTemplateStr = ({
-  selectVariable,
-  prefixLogo,
-  numberArgument,
-  customStyles,
-  isShowLineCount,
-  selectFileName,
-  fileName,
-  lineNumber
-}) => {
+const joinTemplateStr = ({ selectVariable, lineNumber }) => {
+  const numberArgument = getSettingValue('Number Argument')
+  const isShowLineCount = getSettingValue('Show LineNumber')
+  const selectFileName = getSettingValue('Select FileName')
+  const prefixLogo = getSettingValue('Prefix Logo')
+  const fontSize = getSettingValue('Font Size')
+  const fontSizeStr = setFontSizeStr(fontSize) // fontSize 的值
+  const colorBg = getSettingValue('Color Bg')
+  const color = getSettingValue('Color')
+  const { fileName } = window.activeTextEditor.document
+  const customStyles = {
+    fontSize: fontSizeStr,
+    colorBg,
+    color
+  }
   let statement = tempJoin('', '', selectVariable)
   const temp = prefixFormat({
     isShowLineCount,

@@ -11,6 +11,7 @@ import { stylesTransform } from './stylesTransform'
 import { tempJoin } from './tempJoin'
 import { checkForUpdate } from './checkForUpdate'
 import { insertVariable } from './insertVariable'
+import { formatVar } from './formatVar/formatVar'
 
 export {
   SETTINGS_LIST,
@@ -28,5 +29,6 @@ export {
   stylesTransform,
   tempJoin,
   checkForUpdate,
-  insertVariable
+  insertVariable,
+  formatVar,
 }
