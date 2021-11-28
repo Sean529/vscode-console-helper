@@ -7,6 +7,7 @@ import {
   TextLine,
   Position
 } from 'vscode'
+import { formatVar } from '..'
 
 const { activeTextEditor, onDidChangeActiveTextEditor } = window
 let currentEditor: TextEditor
@@ -55,8 +56,9 @@ function handle () {
     // doc.lineAt(lineNumber).text 光标所在(整)行内容文本
     // 光标所在行，第一个非空字符前的空字符串
     const ind = doc.lineAt(lineNumber).text.substring(0, idx)
+    const logText = formatVar(item, lineNumber + 2)
     const wrapData: any = {
-      txt: 'console.log',
+      txt: logText,
       item: item,
       doc: doc,
       ran: ran,
@@ -65,7 +67,6 @@ function handle () {
       sel: sel,
       isLastLine: doc.lineCount - 1 === lineNumber
     }
-    wrapData.txt = `${wrapData.txt}('${item}',${item})`
     resolve(wrapData)
   }).then((wrap: WrapData) => {
     let nxtLine: TextLine
