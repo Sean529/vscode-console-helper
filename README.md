@@ -7,54 +7,56 @@
 3. 如果你跟我一样极(lan)客(ai)，那么这款扩展很适合你
 4. 迷你插件，**不占用内存资源，本插件不会让您的编辑器变得卡顿**
 
-## setting
-
-> 快速打开键盘快捷方式(快捷键)
-
-* macOS: `cmd` + `k`,  `cmd` + `s`
-* Windows: `ctrl` + `k`,  `ctrl` + `s`
-
-> 修改快捷绑定(教程)
-
-* macOS: Code > 首选项 > 键盘快捷方式 > 输入 **consoleLog**，将默认 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
-* Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **consoleLog**，将默认 **ctrl + l** 改为习惯的快捷键即可。
-
-## Feature
-
-* [x] 快捷输出 log
-* [x] 快捷删除当前页面中所有 log
-* [x] 自定义前缀标识
-* [x] 自定义字体颜色
-* [x] 自定义背景颜色
-* [x] 自定义字号大小
-* [x] 支持显示行号
-* [x] 支持显示文件名
-* [x] 支持配置末尾是否分号(默认无分号)
-* [x] 支持选择 console.log 的参数数量
-* [x] 支持代码片段
-* [x] 支持设置单引号或双引号
-
-## Usages
-
 ### 将选中的变量打印
 
 > 选中变量后按下快捷键，会在代码下方插入一行带颜色的 `console` 语句
 
 快捷方式：
 
-* macOS: `cmd` + `shift` + `l`
-* Windows: `ctrl` + `l`
+- macOS: `cmd` + `shift` + `l`
+- Windows: `ctrl` + `l`
 
 ![select-insert](https://qn.xiesz.com/AT/2021-01-27-select-insert.gif)
 
+## Feature
+
+- [x] 快捷输出 log
+  - [x] 光标位置按下快捷键打印输出
+  - [x] 选中单词打印选中单词
+- [x] 快捷删除当前页面中所有 log
+- [x] 支持显示行号
+- [x] 自定义前缀标识
+- [x] 自定义字体颜色
+- [x] 自定义背景颜色
+- [x] 自定义字号大小
+- [x] 支持显示文件名
+- [x] 支持配置末尾是否分号(默认无分号)
+- [x] 支持选择 console.log 的参数数量
+- [x] 支持代码片段
+- [x] 支持设置单引号或双引号
+
+## setting
+
+> 快速打开键盘快捷方式(快捷键)
+
+- macOS: `cmd` + `k`, `cmd` + `s`
+- Windows: `ctrl` + `k`, `ctrl` + `s`
+
+> 修改快捷绑定(教程)
+
+- macOS: Code > 首选项 > 键盘快捷方式 > 输入 **consoleLog**，将默认 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
+- Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **consoleLog**，将默认 **ctrl + l** 改为习惯的快捷键即可。
+
+## Usages
+
 ### 在当前行输出
 
-> 在当前行输出 `console.log('[  ]', )` 语句，光标聚焦在输入位置，输入变量即可。
+> 在当前行输出 `console.log('[ ]', )` 语句，光标聚焦在输入位置，输入变量即可。
 
 快捷方式：
 
-* macOS: `cmd` + `shift` + `l`
-* Windows: `ctrl` + `l`
+- macOS: `cmd` + `shift` + `l`
+- Windows: `ctrl` + `l`
 
 ![insert](https://qn.xiesz.com/AT/2021-01-27-insert.gif)
 
@@ -64,18 +66,18 @@
 
 快捷方式：
 
-* macOS: `cmd` + `shift` + `d`
-* Windows: `ctrl` + `shift` + `d`
+- macOS: `cmd` + `shift` + `d`
+- Windows: `ctrl` + `shift` + `d`
 
 ![delete-all-log](https://qn.xiesz.com/AT/2021-01-27-delete-all-log.gif)
 
 ### 代码片段
 
-* `clg` or `log` 输出 `console.log('[ ] >', )`
+- `clg` or `log` 输出 `console.log('[ ] >', )`
 
 ![snippet-log](https://qn.xiesz.com/AT/2021-01-27-snippet-log.gif)
 
-* `clog` 输出 `console.log('%c [ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
+- `clog` 输出 `console.log('%c [ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
 
 ![snippet-clog](https://qn.xiesz.com/AT/2021-01-27-snippet-clog.gif)
 
@@ -85,14 +87,14 @@
 
 首先打开配置入口
 
-* macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
-* Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
+- macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
+- Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 
 各个选项以 AT 作为变量示例：
 
-* 选择 [^console.log 接收 1 个参数] 输将会在页面上出 **console.log(AT)**
-* 选择 [^console.log 接收 2 个参数] 输将会在页面上出 **console.log('AT', AT)**
-* 选择 [^console.log 接收 3 个参数] 输将会在页面上出 **console.log('AT', 'color: #bf2c9f; background: pink; font-size: 13px; ', AT)**
+- 选择 [^console.log 接收 1 个参数] 输将会在页面上出 **console.log(AT)**
+- 选择 [^console.log 接收 2 个参数] 输将会在页面上出 **console.log('AT', AT)**
+- 选择 [^console.log 接收 3 个参数] 输将会在页面上出 **console.log('AT', 'color: #bf2c9f; background: pink; font-size: 13px; ', AT)**
 
 ### 配置前缀标识
 
@@ -106,8 +108,8 @@
 
 快捷方式：
 
-* macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
-* Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
+- macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
+- Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 
 ![settings](https://qn.xiesz.com/AT/2021-01-27-settings.gif)
 
