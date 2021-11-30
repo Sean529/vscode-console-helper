@@ -43,11 +43,7 @@
     "commands": [
       {
         "command": "consoleLog.insertLogStatement",
-        "title": "打印所选字符"
-      },
-      {
-        "command": "editor.action.insertSnippet",
-        "title": "打印 console.log('[ ]', '') 语句"
+        "title": "打印变量"
       },
       {
         "command": "consoleLog.deleteAllLogStatements",
@@ -69,12 +65,6 @@
         "command": "consoleLog.deleteAllLogStatements",
         "key": "ctrl+shift+d",
         "mac": "cmd+shift+d"
-      },
-      {
-        "command": "consoleLog.insertVariable",
-        "key": "",
-        "mac": "cmd+y",
-        "when": "editorTextFocus"
       }
     ],
     "snippets": [
@@ -159,7 +149,7 @@
         },
         "consoleLog.Show LineNumber": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "是否显示行号"
         }
       }

@@ -41,13 +41,8 @@ export const handleCursorInsert = () => {
     const doc = currentEditor.document
     // 选中的文本对象
     const sel = currentEditor.selection
-    // 选中文本的长度
-    const len = sel.end.character - sel.start.character
     // 获取文本位置
-    const ran =
-      len == 0
-        ? doc.getWordRangeAtPosition(sel.anchor)
-        : new Range(sel.start, sel.end)
+    const ran = doc.getWordRangeAtPosition(sel.anchor) || new Range(sel.start, sel.end)
     const lineNumber = ran.start.line
     // 通过范围获取文本
     const item = doc.getText(ran)
@@ -58,6 +53,7 @@ export const handleCursorInsert = () => {
     // doc.lineAt(lineNumber).text 光标所在(整)行内容文本
     // 光标所在行，第一个非空字符前的空字符串
     const ind = doc.lineAt(lineNumber).text.substring(0, idx)
+    // TODO: 后期可以在这里对选择项为空时特殊处理
     const logText = formatVar(item, lineNumber + 2)
     const wrapData: any = {
       txt: logText,
