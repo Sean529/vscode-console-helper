@@ -10,11 +10,11 @@ import {
 
 // 语句末尾是否加分号
 export const joinStatement = data => {
-  const { isShowSemi } = data
-  return joinSemi(isShowSemi, joinTemplateStr(data))
+  return joinSemi(joinTemplateStr(data))
 }
 
-const joinSemi = (isShowSemi, statement) => {
+const joinSemi = (statement) => {
+  const isShowSemi = getSettingValue('Show Semi')
   return isShowSemi ? `${statement};` : `${statement}`
 }
 
