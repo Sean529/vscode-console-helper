@@ -23,6 +23,7 @@
 - [x] 快捷输出 log
   - [x] 光标位置按下快捷键打印输出
   - [x] 选中单词打印选中单词
+- [x] 快捷输出简单 log
 - [x] 快捷删除当前页面中所有 log
 - [x] 支持显示行号
 - [x] 自定义前缀标识
@@ -49,16 +50,14 @@
 
 ## Usages
 
-### 在当前行输出
-
-> 在当前行输出 `console.log('[ ]', )` 语句，光标聚焦在输入位置，输入变量即可。
+### 快捷输出简单 log
+>  在当前行输出 `console.log('', )` 语句，光标聚焦在输入位置，输入变量即可。
 
 快捷方式：
+- macOS: `cmd` + `y`
+- Windows: `ctrl` + `shift` + `l`
 
-- macOS: `cmd` + `shift` + `l`
-- Windows: `ctrl` + `l`
-
-![insert](https://at529.gitee.io/public-static/static/image/2021-01-27-insert.gif)
+![insert-simple](https://at529.gitee.io/public-static/static/image/20220217-insert-simple.gif)
 
 ### 快捷删除当前页面中所有 log
 
