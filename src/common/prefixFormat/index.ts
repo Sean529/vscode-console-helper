@@ -64,12 +64,17 @@ const switchFileName = (selectFileName, fileName) => {
   switch (selectFileName) {
     case '打印文件名':
       // 完成
-      return fileName.replace(/(.*\/)*([^.]+).*/gi, '$2')
+      return winPath(fileName.replace(/(.*\/)*([^.]+).*/gi, '$2'))
     case '打印文件名+文件后缀名':
       // 完成
-      return fileName.replace(/(.*\/)*([^.]+)/gi, '$2')
+      return winPath(fileName.replace(/(.*\/)*([^.]+)/gi, '$2'))
     case '打印完整路径':
       // 完成
-      return fileName
+      return winPath(fileName)
   }
+}
+
+// windows 路径 '\' 转换为 '/' 
+const winPath = (path) => {
+  return path.replace(/\\/g, '/')
 }
