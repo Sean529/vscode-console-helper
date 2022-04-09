@@ -137,6 +137,7 @@
 
 或通过微信号： `AT-0529` 加好友，备注：**日志小助手**
 
+**如果对您有帮助，给个 star 是对我最大的支持~**
 ## Changelog
 
 [CHANGELOG](./CHANGELOG.md)
