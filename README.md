@@ -1,11 +1,9 @@
 # console-helper（日志小助手）
 
-**console helper** — 帮助开发者更快的输入/移除 log，醒目的主题搭配，极大的提高开发效率。
+**console helper** — 一款在代码中快速输出 console.log 的插件。
 
-1. 一键搞定，告别手打 ~~log clg console.log() console.log('AT', AT) ...~~
-2. 配置性强，可自由配置 log 样式
-3. 如果你跟我一样极(lan)客(ai)，那么这款扩展很适合你
-4. 迷你插件，**不占用内存资源，本插件不会让您的编辑器变得卡顿**
+- 快捷键一键输出 log
+- 支持自定义 log 样式
 
 ### 将选中的变量打印
 
