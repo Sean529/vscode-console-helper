@@ -1,6 +1,6 @@
 # console-helper（日志小助手）
 
-**console helper** — 一款在代码中快速输出 console.log 的插件。
+**console helper** — 在代码中快速输出 console.log 的插件。
 
 - 快捷键一键输出 log
 - 支持自定义 log 样式
