@@ -180,6 +180,11 @@
           "type": "boolean",
           "default": true,
           "description": "是否显示行号"
+        },
+        "consoleLog.Random Color": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否随机颜色"
         }
       }
     }

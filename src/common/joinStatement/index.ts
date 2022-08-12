@@ -1,15 +1,16 @@
 import { window } from 'vscode'
 import { setFontSizeStr } from '../../utils'
+import { getCustomColor } from '../colorConfig/colorConfig'
 import { getSettingValue } from '../getSettingValue'
 import {
   NUMBER_ARGUMENT,
   prefixFormat,
   stylesTransform,
-  tempJoin
+  tempJoin,
 } from '../index'
 
 // 语句末尾是否加分号
-export const joinStatement = data => {
+export const joinStatement = (data) => {
   return joinSemi(joinTemplateStr(data))
 }
 
@@ -25,13 +26,12 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
   const prefixLogo = getSettingValue('Prefix Logo')
   const fontSize = getSettingValue('Font Size')
   const fontSizeStr = setFontSizeStr(fontSize) // fontSize 的值
-  const colorBg = getSettingValue('Color Bg')
-  const color = getSettingValue('Color')
+  const { colorBg, color } = getCustomColor()
   const { fileName } = window.activeTextEditor.document
   const customStyles = {
     fontSize: fontSizeStr,
     colorBg,
-    color
+    color,
   }
   let statement = tempJoin('', '', selectVariable)
   const temp = prefixFormat({
@@ -41,7 +41,7 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
     lineNumber,
     selectVariable,
     prefixLogo,
-    statement
+    statement,
   })
   if (numberArgument === NUMBER_ARGUMENT.twoArgument) {
     statement = tempJoin(temp, '', selectVariable)

@@ -44,7 +44,12 @@ export const SETTINGS_LIST = [
     name: 'Select Quotes',
     default: 'single',
     description: '请选择单引号或双引号'
-  }
+  },
+  {
+    name: 'Random Color',
+    default: false,
+    description: '是否随机颜色'
+  },
 ]
 // 变量占位符
 export const PLACEHOLDER = '#'
