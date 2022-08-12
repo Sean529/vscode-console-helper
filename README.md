@@ -54,8 +54,8 @@
 > 打印的每条 log 都会有不同的颜色
 
 开启方式：进入 vscode 设置，搜索**日志小助手**, 勾选**是否随机颜色**复选框。效果如下：
-![randomColor](https://at529.gitee.io/public-static/static/image/20220812-randomColor.gif)
 
+![randomColor](https://at529.gitee.io/public-static/static/image/20220812-randomColor.gif)
 
 ### 快捷输出简单 log
 
