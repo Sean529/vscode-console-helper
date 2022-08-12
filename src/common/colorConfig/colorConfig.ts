@@ -26,14 +26,18 @@ const getRandomColor = (color = '') => {
   return generateRandomColor()
 }
 
-// 生成随机颜色
+// 随机生成颜色
 const generateRandomColor = (): string => {
-  const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
+  const randomColor =
+    '#' +
+    Math.floor(Math.random() * 0xffffff)
+      .toString(16)
+      .padStart(6, '0')
   return randomColor
 }
 
 // 根据字体颜色生成颜色
 const generateColor2Color = (color): string => {
-	// 根据传入的颜色生成更亮的颜色
+  // 根据传入的颜色生成更亮的颜色
   return adjustColor(color)
 }
