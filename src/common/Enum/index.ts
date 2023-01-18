@@ -50,6 +50,11 @@ export const SETTINGS_LIST = [
     default: false,
     description: '是否随机颜色'
   },
+  {
+    name: 'Defatule Type',
+    default: 'log',
+    description: 'console的类型,log,warn,error'
+  }
 ]
 // 变量占位符
 export const PLACEHOLDER = '#'

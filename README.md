@@ -34,6 +34,7 @@
 - 代码片段方式
 - 单引号或双引号配置
 - 是否开启随机颜色
+- 支持选择console的类型（log,warn,error）
 
 ## setting
 
