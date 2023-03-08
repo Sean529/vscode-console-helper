@@ -5,11 +5,11 @@ import { getSettingValue } from '../getSettingValue'
 import { NUMBER_ARGUMENT, prefixFormat, stylesTransform, tempJoin } from '../index'
 
 // 语句末尾是否加分号
-export const joinStatement = data => {
+export const joinStatement = (data) => {
   return joinSemi(joinTemplateStr(data))
 }
 
-const joinSemi = statement => {
+const joinSemi = (statement) => {
   const isShowSemi = getSettingValue('Show Semi')
   return isShowSemi ? `${statement};` : `${statement}`
 }
@@ -30,7 +30,7 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
     colorBg,
     color,
   }
-  let statement = tempJoin('', '', selectVariable)
+  let statement = tempJoin('', '', selectVariable, '')
   const temp = prefixFormat({
     isShowLineCount,
     selectFileName,

@@ -114,12 +114,14 @@
             "不打印",
             "打印文件名",
             "打印文件名+文件后缀名",
+            "打印文件名+后缀名+上级目录",
             "打印完整路径"
           ],
           "enumDescriptions": [
             "示例：console.log(AT)",
             "示例：console.log('「console」', AT)",
             "示例：console.log('「console.js」', AT)",
+            "示例：console.log('「Desktop/console.js」', AT)",
             "示例：console.log('「/Users/at/Desktop/console.js」', AT)"
           ]
         },
