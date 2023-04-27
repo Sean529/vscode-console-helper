@@ -20,7 +20,7 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
   const selectFileName = getSettingValue('Select FileName')
   const prefixLogo = getSettingValue('Prefix Logo')
   const fontSize = getSettingValue('Font Size')
-  const defatltType = getSettingValue('Defatule Type')
+  const defaultType = getSettingValue('Default Type')
 
   const fontSizeStr = setFontSizeStr(fontSize) // fontSize 的值
   const { colorBg, color } = getCustomColor()
@@ -41,10 +41,10 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
     statement,
   })
   if (numberArgument === NUMBER_ARGUMENT.twoArgument) {
-    statement = tempJoin(temp, '', selectVariable, defatltType)
+    statement = tempJoin(temp, '', selectVariable, defaultType)
   } else if (numberArgument === NUMBER_ARGUMENT.threeArgument) {
     const styles = stylesTransform(customStyles)
-    statement = tempJoin(temp, styles, selectVariable, defatltType)
+    statement = tempJoin(temp, styles, selectVariable, defaultType)
   }
 
   return statement
