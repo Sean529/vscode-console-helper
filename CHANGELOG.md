@@ -2,25 +2,34 @@
 
 此项目的所有显著更改将记录在此文件中。
 
+## [2.6.0]
+
+> 支持删除 console 的类型，多个类型用逗号隔开
+
 ## [2.5.2]
-> 支持选择console的类型（log,warn,error）
+
+> 支持选择 console 的类型（log,warn,error）
 
 ## [2.5.1]
+
 ### 快捷输出简单 log
->  在当前行输出 `console.log('', )` 语句，光标聚焦在输入位置，输入变量即可。
+
+> 在当前行输出 `console.log('', )` 语句，光标聚焦在输入位置，输入变量即可。
 
 快捷方式：
+
 - macOS: `cmd` + `y`
 - Windows: `ctrl` + `shift` + `l`
 
 ![insert-simple](https://at529.gitee.io/public-static/static/image/20220217-insert-simple.gif)
+
 ## [2.4.14]
 
 - 通过快捷键在空行处输出 console
 
   ```
   win: ctrl + l
-	mac: cmd + shift + l
+  mac: cmd + shift + l
   ```
 
 ## [2.4.13]

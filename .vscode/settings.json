@@ -16,7 +16,7 @@
     "editor.defaultFormatter": "numso.prettier-standard-vscode"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "SimonSiefke.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "numso.prettier-standard-vscode"
