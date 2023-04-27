@@ -192,6 +192,11 @@
           "type": "string",
           "default": "log",
           "description": "console的类型，支持 log,warn,error"
+        },
+        "consoleLog.Delete Types": {
+          "type": "string",
+          "default": "log,debug,info,warn,error,assert,dir,dirxml,trace,group,groupEnd,time,timeEnd,profile,profileEnd,count",
+          "description": "删除 console 的类型，多个类型用逗号隔开"
         }
       }
     }

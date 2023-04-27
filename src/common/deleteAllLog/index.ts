@@ -1,5 +1,5 @@
 import { window, Range, commands } from 'vscode'
-import { showErrorMessage } from '../index'
+import { getSettingValue, showErrorMessage } from '../index'
 
 // 删除页面中全部 log
 export const deleteAllLog = context => {
@@ -24,13 +24,26 @@ export const deleteAllLog = context => {
 // 获取全部 log 语句
 const getAllLogStatements = (document, documentText) => {
   const logStatements = []
-  const logRegex = /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\(([\s\S]*?)\);?/g
+  let logTypes = getSettingValue("Delete Types")
+
+  // 如果logTypes类型是 boolean 则转换成字符串
+  if (typeof logTypes === "boolean") {
+    logTypes = logTypes.toString()
+  }
+
+  // 去除 logTypes 前后空格
+  logTypes = logTypes.trim()
+
+  // 将 logTypes 转换为数组
+  let logTypesArr = logTypes.split(",")
+
+  const logRegex = logTypes
+    ? new RegExp(`console.(${logTypesArr.join("|")})\\(([\\s\\S]*?)\\);?`, "g")
+    : /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\(([\s\S]*?)\);?/g
+
   let match
   while ((match = logRegex.exec(documentText))) {
-    const matchRange = new Range(
-      document.positionAt(match.index),
-      document.positionAt(match.index + match[0].length)
-    )
+    const matchRange = new Range(document.positionAt(match.index), document.positionAt(match.index + match[0].length))
     if (!matchRange.isEmpty) logStatements.push(matchRange)
   }
   return logStatements
