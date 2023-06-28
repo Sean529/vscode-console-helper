@@ -51,7 +51,7 @@ export const SETTINGS_LIST = [
     description: '是否随机颜色'
   },
   {
-    name: 'Defatule Type',
+    name: 'Default Type',
     default: 'log',
     description: 'console的类型,log,warn,error'
   }

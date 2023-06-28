@@ -6,6 +6,13 @@
   "publisher": "AT-9420",
   "repository": "https://github.com/shangZhengXie/console-helper",
   "icon": "static/console-helper.png",
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js",
+    "watch": "tsc -watch -p ./",
+    "build": "vsce package"
+  },
   "engines": {
     "vscode": "^1.2.0"
   },
@@ -186,20 +193,13 @@
           "default": false,
           "description": "是否随机颜色"
         },
-        "consoleLog.Defatule Type": {
+        "consoleLog.Default Type": {
           "type": "string",
           "default": "log",
           "description": "console的类型，支持 log,warn,error"
         }
       }
     }
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "node ./test/runTest.js",
-    "watch": "tsc -watch -p ./",
-    "build": "vsce package"
   },
   "devDependencies": {
     "@types/glob": "^7.1.3",

@@ -1,11 +1,11 @@
 // 拼接模板
-export const tempJoin = (temp, styles, selectVariable, defatltType) => {
-  let consoleType = 'log'
-  if (defatltType === 'warn') {
-    consoleType = 'warn'
+export const tempJoin = (temp, styles, selectVariable, defaultType = "log") => {
+  let consoleType = "log"
+  if (defaultType === "warn") {
+    consoleType = "warn"
   }
-  if (defatltType === 'error') {
-    consoleType = 'error'
+  if (defaultType === "error") {
+    consoleType = "error"
   }
 
   if (styles) {

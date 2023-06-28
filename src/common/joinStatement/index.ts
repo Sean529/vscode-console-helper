@@ -1,26 +1,26 @@
-import { window } from 'vscode'
-import { setFontSizeStr } from '../../utils'
-import { getCustomColor } from '../colorConfig/colorConfig'
-import { getSettingValue } from '../getSettingValue'
-import { NUMBER_ARGUMENT, prefixFormat, stylesTransform, tempJoin } from '../index'
+import { window } from "vscode"
+import { setFontSizeStr } from "../../utils"
+import { getCustomColor } from "../colorConfig/colorConfig"
+import { getSettingValue } from "../getSettingValue"
+import { NUMBER_ARGUMENT, prefixFormat, stylesTransform, tempJoin } from "../index"
 
 // 语句末尾是否加分号
-export const joinStatement = data => {
+export const joinStatement = (data) => {
   return joinSemi(joinTemplateStr(data))
 }
 
-const joinSemi = statement => {
-  const isShowSemi = getSettingValue('Show Semi')
+const joinSemi = (statement) => {
+  const isShowSemi = getSettingValue("Show Semi")
   return isShowSemi ? `${statement};` : `${statement}`
 }
 
 const joinTemplateStr = ({ selectVariable, lineNumber }) => {
-  const numberArgument = getSettingValue('Number Argument')
-  const isShowLineCount = getSettingValue('Show LineNumber')
-  const selectFileName = getSettingValue('Select FileName')
-  const prefixLogo = getSettingValue('Prefix Logo')
-  const fontSize = getSettingValue('Font Size')
-  const defatltType = getSettingValue('Defatule Type')
+  const numberArgument = getSettingValue("Number Argument")
+  const isShowLineCount = getSettingValue("Show LineNumber")
+  const selectFileName = getSettingValue("Select FileName")
+  const prefixLogo = getSettingValue("Prefix Logo")
+  const fontSize = getSettingValue("Font Size")
+  const defaultType = getSettingValue("Default Type") + ""
 
   const fontSizeStr = setFontSizeStr(fontSize) // fontSize 的值
   const { colorBg, color } = getCustomColor()
@@ -30,7 +30,7 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
     colorBg,
     color,
   }
-  let statement = tempJoin('', '', selectVariable)
+  let statement = tempJoin("", "", selectVariable)
   const temp = prefixFormat({
     isShowLineCount,
     selectFileName,
@@ -41,10 +41,10 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
     statement,
   })
   if (numberArgument === NUMBER_ARGUMENT.twoArgument) {
-    statement = tempJoin(temp, '', selectVariable, defatltType)
+    statement = tempJoin(temp, "", selectVariable, defaultType)
   } else if (numberArgument === NUMBER_ARGUMENT.threeArgument) {
     const styles = stylesTransform(customStyles)
-    statement = tempJoin(temp, styles, selectVariable, defatltType)
+    statement = tempJoin(temp, styles, selectVariable, defaultType)
   }
 
   return statement
