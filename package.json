@@ -196,7 +196,12 @@
         "consoleLog.Default Type": {
           "type": "string",
           "default": "log",
-          "description": "console的类型，支持 log,warn,error"
+          "description": "console的类型，支持 log, warn, error, info, table, count, group, groupCollapsed"
+        },
+        "consoleLog.Wrap Select Variable": {
+          "type": "string",
+          "default": "#",
+          "description": "包装选择的变量，例如：JSON.stringify(#)"
         }
       }
     }

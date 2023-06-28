@@ -53,7 +53,13 @@ export const SETTINGS_LIST = [
   {
     name: 'Default Type',
     default: 'log',
-    description: 'console的类型,log,warn,error'
+    description:
+      'console的类型, log, warn, error, info, table, count, group, groupCollapsed'
+  },
+  {
+    name: 'Wrap Select Variable',
+    default: '#',
+    description: '包装选择的变量，例如：JSON.stringify(#)'
   }
 ]
 // 变量占位符

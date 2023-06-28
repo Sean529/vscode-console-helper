@@ -34,7 +34,8 @@
 - 代码片段方式
 - 单引号或双引号配置
 - 是否开启随机颜色
-- 支持选择console的类型（log,warn,error）
+- 支持选择 console 的类型（log, warn, error, info, table, count, group, groupCollapsed）
+- 支持配置包装选择的变量（JSON.stringify(#)）
 
 ## setting
 
@@ -50,7 +51,7 @@
 
 ## Usages
 
-### 随机颜色
+## 随机颜色
 
 > 打印的每条 log 都会有不同的颜色
 
@@ -58,7 +59,7 @@
 
 ![randomColor](https://at529.gitee.io/public-static/static/image/20220812-randomColor.gif)
 
-### 快捷输出简单 log
+## 快捷输出简单 log
 
 > 在当前行输出 `console.log('', )` 语句，光标聚焦在输入位置，输入变量即可。
 
@@ -69,7 +70,7 @@
 
 ![insert-simple](https://at529.gitee.io/public-static/static/image/20220217-insert-simple.gif)
 
-### 快捷删除当前页面中所有 log
+## 快捷删除当前页面中所有 log
 
 > 删除页面上所有 `log` ，删除后窗口右下角会提示一共删除了几条 `console.log` 语句
 
@@ -80,7 +81,7 @@
 
 ![delete-all-log](https://at529.gitee.io/public-static/static/image/2021-01-27-delete-all-log.gif)
 
-### 代码片段
+## 代码片段
 
 - `clg` or `log` 输出 `console.log('[ ] >', )`
 
@@ -90,7 +91,7 @@
 
 ![snippet-clog](https://at529.gitee.io/public-static/static/image/2021-01-27-snippet-clog.gif)
 
-### 选择 console.log 参数数量
+## 选择 console.log 参数数量
 
 > 配置 console.log 的参数数量
 
@@ -105,13 +106,22 @@
 - 选择 [^console.log 接收 2 个参数] 输将会在页面上出 **console.log('AT', AT)**
 - 选择 [^console.log 接收 3 个参数] 输将会在页面上出 **console.log('AT', 'color: #bf2c9f; background: pink; font-size: 13px; ', AT)**
 
-### 配置前缀标识
+## 配置前缀标识
 
 > 配置前缀标识可以在控制台中，更快速的找到你的日志，唯一标识可区分是谁的日志
 
 配置 demo 已在配置说明中描述，快去配置专属于你的前缀吧
 
-### 配置项
+## 配置包装选择的变量
+
+> 提高 console 的准确性和可读性，避免输出 [object Object] 等
+
+例如： `JSON.stringify(#)` 或 `JSON.parse(JSON.stringify(#))`
+
+![wrap-select-variable](https://at529.gitee.io/public-static/static/image/2023-06-28-wrap-select-variable-setting.png)
+![wrap-select-variable](https://at529.gitee.io/public-static/static/image/2023-06-28-wrap-select-variable.png)
+
+## 配置项
 
 > 自定义小助手 console
 

@@ -2,25 +2,38 @@
 
 此项目的所有显著更改将记录在此文件中。
 
+## [2.8.0]
+
+> 支持配置包装变量
+
+提高 console 的准确性和可读性，避免输出 [object Object] 等
+
+例如： `JSON.stringify(#)` 或 `JSON.parse(JSON.stringify(#))`
+
 ## [2.5.2]
-> 支持选择console的类型（log,warn,error）
+
+> 支持选择 console 的类型（log, warn, error, info, table, count, group, groupCollapsed）
 
 ## [2.5.1]
+
 ### 快捷输出简单 log
->  在当前行输出 `console.log('', )` 语句，光标聚焦在输入位置，输入变量即可。
+
+> 在当前行输出 `console.log('', )` 语句，光标聚焦在输入位置，输入变量即可。
 
 快捷方式：
+
 - macOS: `cmd` + `y`
 - Windows: `ctrl` + `shift` + `l`
 
 ![insert-simple](https://at529.gitee.io/public-static/static/image/20220217-insert-simple.gif)
+
 ## [2.4.14]
 
 - 通过快捷键在空行处输出 console
 
   ```
   win: ctrl + l
-	mac: cmd + shift + l
+  mac: cmd + shift + l
   ```
 
 ## [2.4.13]
