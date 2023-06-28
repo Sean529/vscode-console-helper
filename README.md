@@ -35,6 +35,7 @@
 - 单引号或双引号配置
 - 是否开启随机颜色
 - 支持选择 console 的类型（log, warn, error, info, table, count, group, groupCollapsed）
+- 支持删除 console 的类型，多个类型用逗号隔开
 - 支持配置包装选择的变量（JSON.stringify(#)）
 
 ## setting
@@ -81,7 +82,11 @@
 
 ![delete-all-log](https://at529.gitee.io/public-static/static/image/2021-01-27-delete-all-log.gif)
 
-## 代码片段
+#### 支持删除 console 的类型，多个类型用逗号隔开
+
+在配置中添加 `consoleLog.Delete Types` 配置项，配置项值为 `log`、`warn`、`error`，多个类型用逗号隔开，如：`log,warn,error`，默认删除所有类型的 console。
+
+### 代码片段快捷方式
 
 - `clg` or `log` 输出 `console.log('[ ] >', )`
 

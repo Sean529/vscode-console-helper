@@ -2,7 +2,7 @@
   "name": "console-helper",
   "displayName": "console helper",
   "description": "console helper — 在代码中快速输出 console.log 的插件。",
-  "version": "2.5.2",
+  "version": "2.7.0",
   "publisher": "AT-9420",
   "repository": "https://github.com/shangZhengXie/console-helper",
   "icon": "static/console-helper.png",
@@ -121,12 +121,14 @@
             "不打印",
             "打印文件名",
             "打印文件名+文件后缀名",
+            "打印文件名+后缀名+上级目录",
             "打印完整路径"
           ],
           "enumDescriptions": [
             "示例：console.log(AT)",
             "示例：console.log('「console」', AT)",
             "示例：console.log('「console.js」', AT)",
+            "示例：console.log('「Desktop/console.js」', AT)",
             "示例：console.log('「/Users/at/Desktop/console.js」', AT)"
           ]
         },
@@ -202,6 +204,11 @@
           "type": "string",
           "default": "#",
           "description": "包装选择的变量，例如：JSON.stringify(#)"
+        },
+        "consoleLog.Delete Types": {
+          "type": "string",
+          "default": "log, debug, info, warn, error, assert, dir, dirxml, trace, group, groupEnd, time, timeEnd, profile, profileEnd, count", 
+          "description": "删除 console 的类型，多个类型用逗号隔开"
         }
       }
     }

@@ -10,6 +10,10 @@
 
 例如： `JSON.stringify(#)` 或 `JSON.parse(JSON.stringify(#))`
 
+## [2.6.0]
+
+> 支持删除 console 的类型，多个类型用逗号隔开
+
 ## [2.5.2]
 
 > 支持选择 console 的类型（log, warn, error, info, table, count, group, groupCollapsed）

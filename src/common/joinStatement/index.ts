@@ -30,7 +30,7 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
     colorBg,
     color,
   }
-  let statement = tempJoin("", "", selectVariable)
+  let statement = tempJoin('', '', selectVariable, '')
   const temp = prefixFormat({
     isShowLineCount,
     selectFileName,
@@ -41,7 +41,7 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
     statement,
   })
   if (numberArgument === NUMBER_ARGUMENT.twoArgument) {
-    statement = tempJoin(temp, "", selectVariable, defaultType)
+    statement = tempJoin(temp, '', selectVariable, defaultType)
   } else if (numberArgument === NUMBER_ARGUMENT.threeArgument) {
     const styles = stylesTransform(customStyles)
     statement = tempJoin(temp, styles, selectVariable, defaultType)

@@ -60,7 +60,12 @@ export const SETTINGS_LIST = [
     name: 'Wrap Select Variable',
     default: '#',
     description: '包装选择的变量，例如：JSON.stringify(#)'
-  }
+  },
+  {
+    name: 'Delete Types',
+    default: 'log, debug, info, warn, error, assert, dir, dirxml, trace, group, groupEnd, time, timeEnd, profile, profileEnd, count',
+    description: '删除 console 的类型，多个类型用逗号隔开'
+  },
 ]
 // 变量占位符
 export const PLACEHOLDER = '#'
