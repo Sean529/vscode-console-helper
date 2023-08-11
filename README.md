@@ -2,6 +2,10 @@
 
 **console helper** — 在代码中快速输出 console.log 的插件。
 
+[![Marketplace](https://img.shields.io/visual-studio-marketplace/v/AT-9420.console-helper.svg?label=Marketplace&style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/AT-9420.console-helper.svg?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)
+[![Rating](https://img.shields.io/visual-studio-marketplace/stars/AT-9420.console-helper.svg?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)
+
 - 快捷键一键输出 log
 - 支持自定义 log 样式
 
