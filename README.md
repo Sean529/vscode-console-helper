@@ -18,7 +18,7 @@
 - macOS: `cmd` + `shift` + `l`
 - Windows: `ctrl` + `l`
 
-![select-insert](https://at529.gitee.io/public-static/static/image/2021-01-27-select-insert.gif)
+![select-insert](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_select_insert.gif)
 
 ## Feature
 
@@ -41,6 +41,7 @@
 - 支持选择 console 的类型（log, warn, error, info, table, count, group, groupCollapsed）
 - 支持删除 console 的类型，多个类型用逗号隔开
 - 支持配置包装选择的变量（JSON.stringify(#)）
+- 支持 Python 文件打印
 
 ## setting
 
@@ -62,7 +63,7 @@
 
 开启方式：进入 vscode 设置，搜索**日志小助手**, 勾选**是否随机颜色**复选框。效果如下：
 
-![randomColor](https://at529.gitee.io/public-static/static/image/20220812-randomColor.gif)
+![randomColor](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/20220812_randomColor.gif)
 
 ## 快捷输出简单 log
 
@@ -73,7 +74,7 @@
 - macOS: `cmd` + `y`
 - Windows: `ctrl` + `shift` + `l`
 
-![insert-simple](https://at529.gitee.io/public-static/static/image/20220217-insert-simple.gif)
+![insert-simple](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/20220217_insert_simple.gif)
 
 ## 快捷删除当前页面中所有 log
 
@@ -84,7 +85,7 @@
 - macOS: `cmd` + `shift` + `d`
 - Windows: `ctrl` + `shift` + `d`
 
-![delete-all-log](https://at529.gitee.io/public-static/static/image/2021-01-27-delete-all-log.gif)
+![delete-all-log](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_delete_all_log.gif)
 
 #### 支持删除 console 的类型，多个类型用逗号隔开
 
@@ -94,11 +95,11 @@
 
 - `clg` or `log` 输出 `console.log('[ ] >', )`
 
-![snippet-log](https://at529.gitee.io/public-static/static/image/2021-01-27-snippet-log.gif)
+![snippet-log](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_log.gif)
 
 - `clog` 输出 `console.log('%c [ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
 
-![snippet-clog](https://at529.gitee.io/public-static/static/image/2021-01-27-snippet-clog.gif)
+![snippet-clog](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_clog.gif)
 
 ## 选择 console.log 参数数量
 
@@ -127,8 +128,15 @@
 
 例如： `JSON.stringify(#)` 或 `JSON.parse(JSON.stringify(#))`
 
-![wrap-select-variable](https://at529.gitee.io/public-static/static/image/2023-06-28-wrap-select-variable-setting.png)
-![wrap-select-variable](https://at529.gitee.io/public-static/static/image/2023-06-28-wrap-select-variable.png)
+![wrap-select-variable](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2023_06_28_wrap_select_variable_setting.png)
+![wrap-select-variable](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2023_06_28_wrap_select_variable.png)
+
+## 支持 Python 文件打印
+
+光标放在变量上按下快捷键输出：`python()`
+
+- macOS: `cmd` + `shift` + `l`
+- Windows: `ctrl` + `l`
 
 ## 配置项
 
@@ -139,7 +147,7 @@
 - macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 - Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
 
-![settings](https://at529.gitee.io/public-static/static/image/2021-01-27-settings.gif)
+![settings](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_settings.gif)
 
 ## Install
 
@@ -158,11 +166,11 @@
 
 扫码加群:
 
-<img style="display: block" width="303" alt="微信群" src="https://at529.gitee.io/public-static/static/image/2021-01-27-wechat-group.jpeg">
+<img style="display: block" width="303" alt="微信群" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat_group.jpeg">
 
 若扫码进不去，可加微信拉入 **console helper 日志小助手群**：
 
-<img style="display: block" width="303" alt="微信号" src="https://at529.gitee.io/public-static/static/image/2021-01-27-wechat.jpeg">
+<img style="display: block" width="303" alt="微信号" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat.jpeg">
 
 或通过微信号： `AT-0529` 加好友，备注：**日志小助手**
 
