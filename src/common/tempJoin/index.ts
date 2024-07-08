@@ -1,5 +1,6 @@
 import { getSettingValue } from "../getSettingValue"
 import { window } from "vscode"
+import { getRandomAnsiColorCode, getRandomAnsiColorCodeConfig } from "../tools"
 
 // 根据语言拼不同的模板
 const getTempByLanguage = (temp, styles, selectVariable, defaultType = "log") => {
@@ -28,6 +29,12 @@ const jsTemp = (temp, styles, wrapSelectVariable, defaultType = "log") => {
     : "log"
 
   let result = ""
+
+  // 终端随机颜色 - 权重比后面的都高
+  if (getRandomAnsiColorCodeConfig()) {
+    const randomColorCode = getRandomAnsiColorCode()
+    return `console.${consoleType}('${randomColorCode} ${temp} \x1b[0m', ${wrapSelectVariable})`
+  }
 
   if (styles) {
     result = `console.${consoleType}('%c ${temp}', '${styles}', ${wrapSelectVariable})`

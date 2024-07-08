@@ -42,6 +42,7 @@
 - 支持删除 console 的类型，多个类型用逗号隔开
 - 支持配置包装选择的变量（JSON.stringify(#)）
 - 支持 Python 文件打印
+- 支持随机颜色在终端展示
 
 ## setting
 
@@ -137,6 +138,11 @@
 
 - macOS: `cmd` + `shift` + `l`
 - Windows: `ctrl` + `l`
+
+## 支持随机颜色在终端展示
+
+在设置中勾选在终端中随机颜色
+![wrap-select-variable](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2024_07_08_random_color_in_terminal.png)
 
 ## 配置项
 

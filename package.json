@@ -195,6 +195,11 @@
           "default": false,
           "description": "是否随机颜色"
         },
+        "consoleLog.Random Color In Terminal": {
+          "type": "boolean",
+          "default": false,
+          "description": "是否在终端中随机颜色，权重比 Random Color 高"
+        },
         "consoleLog.Default Type": {
           "type": "string",
           "default": "log",

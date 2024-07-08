@@ -66,6 +66,11 @@ export const SETTINGS_LIST = [
     default: 'log, debug, info, warn, error, assert, dir, dirxml, trace, group, groupEnd, time, timeEnd, profile, profileEnd, count',
     description: '删除 console 的类型，多个类型用逗号隔开'
   },
+  {
+    name: 'Random Color In Terminal',
+    default: false,
+    description: '是否在终端中随机颜色，权重比 Random Color 高'
+  },
 ]
 // 变量占位符
 export const PLACEHOLDER = '#'
