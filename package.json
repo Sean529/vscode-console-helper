@@ -178,7 +178,7 @@
         "consoleLog.Font Size": {
           "type": "string",
           "default": "13",
-          "description": "字号大小[ 单位 px ], 建议 13"
+          "description": "字号大小[ 默认单位 px ], 建议 13"
         },
         "consoleLog.Show Semi": {
           "type": "boolean",

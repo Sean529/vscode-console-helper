@@ -14,6 +14,10 @@ export const isEmpty = (obj) => {
   return Object.keys(obj).length === 0
 }
 
+// 判断属性是否为空 
+export const isEmptyValue = (value) => {
+  return value === '' || value === null || value === undefined;
+}
 // 把对象的空值删除
 export const filterEmptyObj = (obj) => {
   for (const key in obj) {
@@ -24,9 +28,12 @@ export const filterEmptyObj = (obj) => {
   return obj
 }
 
-// 对 size 处理，若无px则添加单位
+// 对 size 处理，若无单位则添加默认单位
 export const setFontSizeStr = (fontSize) => {
-  return fontSize.includes('px') ? fontSize : `${fontSize}px`
+  if(fontSize === '') {
+    return '';
+  }
+   return isNaN(fontSize) ? fontSize : `${fontSize}px`
 }
 
 // 亮色
