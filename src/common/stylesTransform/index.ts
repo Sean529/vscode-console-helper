@@ -1,4 +1,4 @@
-import { filterEmptyObj, cloneDeep, isEmpty } from '../../utils'
+import { filterEmptyObj, cloneDeep, isEmpty, isEmptyValue } from '../../utils'
 import { STYLES } from '../index'
 // 样式对象转为字符串
 export const stylesTransform = customStyles => {
@@ -12,6 +12,9 @@ export const stylesTransform = customStyles => {
   for (const key in styles) {
     const styleKey = STYLES[`${key}`]
     const styleValue = styles[key]
+    if(isEmptyValue(styleValue)) {
+      continue;
+    }
     styleTemp += `${styleKey}:${styleValue}; `
   }
   styleTemp = styleTemp.substring(0, styleTemp.length - 1) // 移除末尾的空格
