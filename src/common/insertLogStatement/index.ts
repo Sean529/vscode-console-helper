@@ -12,6 +12,15 @@ export const insertLogStatement = context => {
   context.subscriptions.push(insert)
 }
 
+export const insertVariable = context => {
+  const insert = commands.registerTextEditorCommand(
+    'consoleLog.insertVariable',
+    handle
+  )
+  // 订阅命令
+  context.subscriptions.push(insert)
+}
+
 const handle = async () => {
   const textEditor = window.activeTextEditor
   if (!textEditor) {
