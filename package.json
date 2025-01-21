@@ -2,7 +2,7 @@
   "name": "console-helper",
   "displayName": "console helper",
   "description": "console helper — 在代码中快速输出 console.log 的插件。",
-  "version": "2.13.0",
+  "version": "2.13.1",
   "publisher": "AT-9420",
   "repository": "https://github.com/shangZhengXie/console-helper",
   "icon": "static/console-helper.png",
