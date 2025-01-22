@@ -20,7 +20,6 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
   const selectFileName = getSettingValue("Select FileName")
   const prefixLogo = getSettingValue("Prefix Logo")
   const fontSize = getSettingValue("Font Size")
-  const defaultType = getSettingValue("Default Type") + ""
 
   const fontSizeStr = setFontSizeStr(fontSize) // fontSize 的值
   const { colorBg, color } = getCustomColor()
@@ -30,7 +29,7 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
     colorBg,
     color,
   }
-  let statement = tempJoin('', '', selectVariable, '')
+  let statement = tempJoin("", "", selectVariable)
   const temp = prefixFormat({
     isShowLineCount,
     selectFileName,
@@ -41,10 +40,10 @@ const joinTemplateStr = ({ selectVariable, lineNumber }) => {
     statement,
   })
   if (numberArgument === NUMBER_ARGUMENT.twoArgument) {
-    statement = tempJoin(temp, '', selectVariable, defaultType)
+    statement = tempJoin(temp, "", selectVariable)
   } else if (numberArgument === NUMBER_ARGUMENT.threeArgument) {
     const styles = stylesTransform(customStyles)
-    statement = tempJoin(temp, styles, selectVariable, defaultType)
+    statement = tempJoin(temp, styles, selectVariable)
   }
 
   return statement

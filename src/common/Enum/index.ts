@@ -51,26 +51,25 @@ export const SETTINGS_LIST = [
     description: '是否随机颜色'
   },
   {
-    name: 'Default Type',
-    default: 'log',
-    description:
-      'console的类型, log, warn, error, info, table, count, group, groupCollapsed'
-  },
-  {
     name: 'Wrap Select Variable',
     default: '#',
     description: '包装选择的变量，例如：JSON.stringify(#)'
   },
   {
-    name: 'Delete Types',
-    default: 'log, debug, info, warn, error, assert, dir, dirxml, trace, group, groupEnd, time, timeEnd, profile, profileEnd, count',
-    description: '删除 console 的类型，多个类型用逗号隔开'
+    name: 'Delete Log Functions',
+    default: 'console.log,console.debug,console.info',
+    description: '要删除的日志函数列表，多个函数用逗号隔开。例如：console.log,debug.log,DEBUG_LOG'
   },
   {
     name: 'Random Color In Terminal',
     default: false,
     description: '是否在终端中随机颜色，权重比 Random Color 高'
   },
+  {
+    name: 'Custom Log Function',
+    default: 'console.log',
+    description: '自定义 console.log 函数'
+  }
 ]
 // 变量占位符
 export const PLACEHOLDER = '#'

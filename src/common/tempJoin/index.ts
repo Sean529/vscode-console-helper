@@ -3,7 +3,7 @@ import { window } from "vscode"
 import { getRandomAnsiColorCode, getRandomAnsiColorCodeConfig } from "../tools"
 
 // 根据语言拼不同的模板
-const getTempByLanguage = (temp, styles, selectVariable, defaultType = "log") => {
+const getTempByLanguage = (temp, styles, selectVariable) => {
   const editor = window.activeTextEditor
   const document = editor.document
   const languageId = document.languageId
@@ -12,7 +12,7 @@ const getTempByLanguage = (temp, styles, selectVariable, defaultType = "log") =>
   if (languageId === "python") {
     return pythonTemp(temp, styles, wrapSelectVariable)
   } else {
-    return jsTemp(temp, styles, wrapSelectVariable, defaultType)
+    return jsTemp(temp, styles, wrapSelectVariable)
   }
 }
 
@@ -22,33 +22,34 @@ const pythonTemp = (_temp, _styles, wrapSelectVariable) => {
 }
 
 // js 模板
-const jsTemp = (temp, styles, wrapSelectVariable, defaultType = "log") => {
-  // 支持 console 的所有类型，若不在支持范围则默认为 log
-  const consoleType = ["log", "warn", "error", "info", "table", "count", "group", "groupCollapsed"].includes(defaultType)
-    ? defaultType
-    : "log"
-
+const jsTemp = (temp, styles, wrapSelectVariable) => {
   let result = ""
+  let customLogFunction = getSettingValue("Custom Log Function") || "console.log"
+
+  // 如果 customLogFunction 类型是 boolean 则转换成字符串
+  if (typeof customLogFunction === "boolean") {
+    customLogFunction = customLogFunction.toString()
+  }
 
   // 终端随机颜色 - 权重比后面的都高
   if (getRandomAnsiColorCodeConfig()) {
     const randomColorCode = getRandomAnsiColorCode()
-    return `console.${consoleType}('${randomColorCode} ${temp} \x1b[0m', ${wrapSelectVariable})`
+    return `${customLogFunction}('${randomColorCode} ${temp} \x1b[0m', ${wrapSelectVariable})`
   }
 
   if (styles) {
-    result = `console.${consoleType}('%c ${temp}', '${styles}', ${wrapSelectVariable})`
+    result = `${customLogFunction}('%c ${temp}', '${styles}', ${wrapSelectVariable})`
   } else if (temp) {
-    result = `console.${consoleType}('${temp}', ${wrapSelectVariable})`
+    result = `${customLogFunction}('${temp}', ${wrapSelectVariable})`
   } else {
-    result = `console.${consoleType}(${wrapSelectVariable})`
+    result = `${customLogFunction}(${wrapSelectVariable})`
   }
   return result
 }
 
 // 拼接 console 模板
-export const tempJoin = (temp, styles, selectVariable, defaultType = "log") => {
-  return getTempByLanguage(temp, styles, selectVariable, defaultType)
+export const tempJoin = (temp, styles, selectVariable) => {
+  return getTempByLanguage(temp, styles, selectVariable)
 }
 
 // 包装选择的变量

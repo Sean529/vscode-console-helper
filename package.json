@@ -121,7 +121,7 @@
             "不打印",
             "打印文件名",
             "打印文件名+文件后缀名",
-            "打印文件名+后缀名+上级目录",
+            "打印文件名+文件后缀名+上级目录",
             "打印完整路径"
           ],
           "enumDescriptions": [
@@ -200,20 +200,20 @@
           "default": false,
           "description": "是否在终端中随机颜色，权重比 Random Color 高"
         },
-        "consoleLog.Default Type": {
+        "consoleLog.Custom Log Function": {
           "type": "string",
-          "default": "log",
-          "description": "console的类型，支持 log, warn, error, info, table, count, group, groupCollapsed"
+          "default": "console.log",
+          "description": "自定义日志函数名称，例如：console.log、debug_log.log、console.debug、DEBUG_LOG、LOG_DEBUG 等"
         },
         "consoleLog.Wrap Select Variable": {
           "type": "string",
           "default": "#",
           "description": "包装选择的变量，例如：JSON.stringify(#)"
         },
-        "consoleLog.Delete Types": {
+        "consoleLog.Delete Log Functions": {
           "type": "string",
-          "default": "log, debug, info, warn, error, assert, dir, dirxml, trace, group, groupEnd, time, timeEnd, profile, profileEnd, count",
-          "description": "删除 console 的类型，多个类型用逗号隔开"
+          "default": "console.log,console.debug,console.info",
+          "description": "要删除的日志函数列表，多个函数用逗号隔开。例如：console.log,debug.log,DEBUG_LOG"
         }
       }
     }

@@ -1,45 +1,65 @@
-import { window, Range, commands } from 'vscode'
-import { getSettingValue, showErrorMessage } from '../index'
+import { window, Range, commands } from "vscode"
+import { getSettingValue, showErrorMessage } from "../index"
 
 // 删除页面中全部 log
-export const deleteAllLog = context => {
-  const deleteAllLogStatements = commands.registerCommand(
-    'consoleLog.deleteAllLogStatements',
-    () => {
-      const editor = window.activeTextEditor
-      if (!editor) {
-        showErrorMessage()
-        return
-      }
-
-      const document = editor.document
-      const documentText = editor.document.getText()
-      const logStatements = getAllLogStatements(document, documentText)
-      deleteFoundLogStatements(logStatements)
+export const deleteAllLog = (context) => {
+  const deleteAllLogStatements = commands.registerCommand("consoleLog.deleteAllLogStatements", () => {
+    const editor = window.activeTextEditor
+    if (!editor) {
+      showErrorMessage()
+      return
     }
-  )
+
+    const document = editor.document
+    const documentText = editor.document.getText()
+    const logStatements = getAllLogStatements(document, documentText)
+    deleteFoundLogStatements(logStatements)
+  })
   context.subscriptions.push(deleteAllLogStatements)
 }
 
 // 获取全部 log 语句
 const getAllLogStatements = (document, documentText) => {
   const logStatements = []
-  let logTypes = getSettingValue("Delete Types")
+  let logFunctions = getSettingValue("Delete Log Functions")
 
-  // 如果logTypes类型是 boolean 则转换成字符串
-  if (typeof logTypes === "boolean") {
-    logTypes = logTypes.toString()
+  // 如果logFunctions类型是 boolean 则转换成字符串
+  if (typeof logFunctions === "boolean") {
+    logFunctions = logFunctions.toString()
   }
 
-  // 去除 logTypes 前后空格
-  logTypes = logTypes.trim()
+  // 去除前后空格
+  logFunctions = logFunctions.trim()
 
-  // 将 logTypes 转换为数组
-  let logTypesArr = logTypes.split(",")
+  // 将配置的函数转换为数组
+  let logFunctionsArr = logFunctions.split(",").map((f) => f.trim())
 
-  const logRegex = logTypes
-    ? new RegExp(`console.(${logTypesArr.join("|")})\\(([\\s\\S]*?)\\);?`, "g")
-    : /console.(log|debug|info|warn|error|assert|dir|dirxml|trace|group|groupEnd|time|timeEnd|profile|profileEnd|count)\(([\s\S]*?)\);?/g
+  // 默认的 console 方法
+  const defaultLogFunctions = [
+    "console.log",
+    "console.debug",
+    "console.info",
+    "console.warn",
+    "console.error",
+    "console.assert",
+    "console.dir",
+    "console.dirxml",
+    "console.trace",
+    "console.group",
+    "console.groupEnd",
+    "console.time",
+    "console.timeEnd",
+    "console.profile",
+    "console.profileEnd",
+    "console.count",
+  ]
+
+  // 使用配置的函数或默认函数
+  const types = logFunctions ? logFunctionsArr : defaultLogFunctions
+
+  // 转义特殊字符并构建正则模式
+  const escapedTypes = types.map((type) => type.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+  const logRegex = new RegExp(`(${escapedTypes.join("|")})\\(([\\s\\S]*?)\\);?`, "g")
 
   let match
   while ((match = logRegex.exec(documentText))) {
@@ -50,11 +70,11 @@ const getAllLogStatements = (document, documentText) => {
 }
 
 // 删除所有找到的 log 语句
-const deleteFoundLogStatements = logs => {
+const deleteFoundLogStatements = (logs) => {
   const editor = window.activeTextEditor
   const { document } = editor
-  editor.edit(edit => {
-    logs.forEach(range => {
+  editor.edit((edit) => {
+    logs.forEach((range) => {
       deleteFoundLogLines(range, edit, document)
     })
     deleteSuccessShowMessage(logs)
@@ -69,9 +89,7 @@ const deleteFoundLogLines = (range, edit, document) => {
 }
 
 // 删除成功提示信息
-const deleteSuccessShowMessage = logs => {
-  const message = logs.length
-    ? `${logs.length} console.logs deleted`
-    : `${logs.length} console.log deleted`
+const deleteSuccessShowMessage = (logs) => {
+  const message = logs.length ? `${logs.length} console.logs deleted` : `${logs.length} console.log deleted`
   window.showInformationMessage(message)
 }
