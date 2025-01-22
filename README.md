@@ -1,186 +1,311 @@
 # console-helper（日志小助手）
 
-**console helper** — 在代码中快速输出 console.log 的插件。
-
-- 快捷键一键输出 log
-- 支持自定义 log 样式
+**Console Helper** — 强大的日志辅助工具，让调试开发更轻松高效。
 
 [![Marketplace](https://img.shields.io/visual-studio-marketplace/v/AT-9420.console-helper.svg?label=Marketplace&style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)
 [![Installs](https://img.shields.io/visual-studio-marketplace/i/AT-9420.console-helper.svg?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)
 [![Rating](https://img.shields.io/visual-studio-marketplace/stars/AT-9420.console-helper.svg?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)
 
-### 将选中的变量打印
-
-> 选中变量后按下快捷键，会在代码下方插入一行带颜色的 `console` 语句
-
-快捷方式：
-
-- macOS: `cmd` + `shift` + `l`
-- Windows: `ctrl` + `l`
-
-![select-insert](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_select_insert.gif)
-
 ## Feature
 
-- 快捷输出 log
-  - 光标位置按下快捷键打印输出
-  - 选中单词打印选中单词
-- 快捷输出简单 log
-- 快捷删除当前页面中所有 log
-- 支持显示行号
+### 核心功能
+
+- 快捷输出日志
+  - 光标位置一键打印
+  - 选中变量快速打印
+  - 支持多种日志函数（如 console.log、console.debug、DEBUG_LOG、print 等）
+- 快捷输出简单日志
+- 一键清理日志
+
+### 日志样式
+
 - 自定义前缀标识
-- 自定义字体颜色
-- 自定义背景颜色
-- 自定义字号大小
-- 支持显示文件名
-- 末尾是否分号(默认无分号)
-- console.log 的参数数量配置
-- 代码片段方式
-- 单引号或双引号配置
-- 是否开启随机颜色
-- 支持选择 console 的类型（log, warn, error, info, table, count, group, groupCollapsed）
-- 支持删除 console 的类型，多个类型用逗号隔开
-- 支持配置包装选择的变量（JSON.stringify(#)）
-- 支持 Python 文件打印
-- 支持随机颜色在终端展示
+- 显示行号和文件名
+- 字体样式配置
+  - 自定义颜色
+  - 自定义背景色
+  - 自定义字号
+- 随机颜色效果
+  - 浏览器控制台
+  - 终端显示
+- 变量格式化处理
+  - 自动对复杂对象进行格式化，避免出现 `[object Object]` 这样难以阅读的输出
 
-## setting
+### 其他配置
 
-> 快速打开键盘快捷方式(快捷键)
+- 日志参数数量（1-3 个参数）
+- 代码片段快捷方式
+- 引号类型（单/双引号）
+- 分号配置（有/无）
+
+### 快捷键设置
+
+#### 查看当前快捷键
+
+打开快捷键设置面板：
 
 - macOS: `cmd` + `k`, `cmd` + `s`
 - Windows: `ctrl` + `k`, `ctrl` + `s`
 
-> 修改快捷绑定(教程)
+#### 自定义快捷键
 
-- macOS: Code > 首选项 > 键盘快捷方式 > 输入 **consoleLog**，将默认 **cmd + shift + l** 改为习惯的快捷键即可，推荐使用 **cmd + l**。
-- Windows: 文件 > 首选项 > 键盘快捷方式 > 输入 **consoleLog**，将默认 **ctrl + l** 改为习惯的快捷键即可。
+1. 打开快捷键设置面板
+2. 搜索 `consoleLog`
+3. 设置你喜欢的快捷键组合：
+   - macOS: 默认为 `cmd` + `shift` + `l`，推荐改为 `cmd` + `l`
+   - Windows: 默认为 `ctrl` + `l`
 
 ## Usages
 
-## 随机颜色
+### 快速打印选中变量
 
-> 打印的每条 log 都会有不同的颜色
+> 一键生成带颜色的日志语句，自动获取变量名并添加行号信息
 
-开启方式：进入 vscode 设置，搜索**日志小助手**, 勾选**是否随机颜色**复选框。效果如下：
+使用方式：
 
-![randomColor](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/20220812_randomColor.gif)
+1. 选中要打印的变量
+2. 按下快捷键：
+   - macOS: `cmd` + `shift` + `l`
+   - Windows: `ctrl` + `l`
 
-## 快捷输出简单 log
+<img width="600" alt="选中变量打印演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_select_insert.gif">
 
-> 在当前行输出 `console.log('', )` 语句，光标聚焦在输入位置，输入变量即可。
+### 随机颜色
 
-快捷方式：
+> 为每条日志设置不同的颜色，让输出更醒目易读
 
-- macOS: `cmd` + `y`
-- Windows: `ctrl` + `shift` + `l`
+设置方法：
 
-![insert-simple](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/20220217_insert_simple.gif)
+1. 打开 VSCode 设置（Code > 首选项 > 设置）
+2. 搜索 "日志小助手"
+3. 勾选 "是否随机颜色" 选项
 
-## 快捷删除当前页面中所有 log
+效果如下：
 
-> 删除页面上所有 `log` ，删除后窗口右下角会提示一共删除了几条 `console.log` 语句
+<img width="600" alt="随机颜色演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/20220812_randomColor.gif">
 
-快捷方式：
+### 终端日志着色
 
-- macOS: `cmd` + `shift` + `d`
-- Windows: `ctrl` + `shift` + `d`
+> 在终端中也能使用随机颜色功能，让日志更加醒目
 
-![delete-all-log](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_delete_all_log.gif)
+设置方法：
 
-#### 支持删除 console 的类型，多个类型用逗号隔开
+1. 打开 VSCode 设置（Code > 首选项 > 设置）
+2. 搜索 "日志小助手"
+3. 勾选 "Random Color In Terminal" 选项
 
-在配置中添加 `consoleLog.Delete Types` 配置项，配置项值为 `log`、`warn`、`error`，多个类型用逗号隔开，如：`log,warn,error`，默认删除所有类型的 console。
+效果展示：
+<img width="600" alt="终端日志着色演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2024_07_08_random_color_in_terminal.png">
+
+### 快捷输出简单日志
+
+> 快速插入一个空的日志语句，光标自动定位到输入位置
+
+使用方式：
+
+1. 将光标定位到目标行
+2. 按下对应快捷键：
+   - macOS: `cmd` + `y`
+   - Windows: `ctrl` + `shift` + `l`
+3. 输入变量名即可
+
+示例：插入 `console.log('', )`
+
+<img width="600" alt="简单日志演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/20220217_insert_simple.gif">
+
+### 一键清理日志
+
+> 快速删除当前文件中的所有日志语句，操作后会显示删除数量
+
+使用方式：
+
+1. 在需要清理的文件中
+2. 按下对应快捷键：
+   - macOS: `cmd` + `shift` + `d`
+   - Windows: `ctrl` + `shift` + `d`
+3. 右下角会显示删除的日志数量
+
+<img width="600" alt="删除日志演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_delete_all_log.gif">
+
+#### 自定义要删除的日志函数
+
+可以指定需要删除的日志函数列表，方便批量清理特定类型的日志：
+
+1. 打开设置，搜索 "日志小助手"
+2. 找到 "Delete Log Functions" 配置项
+3. 输入要删除的日志函数，多个函数用逗号分隔，例如：
+   - `console.log,console.debug,console.info`
+   - `debug.log,DEBUG_LOG,console.warn`
 
 ### 代码片段快捷方式
 
-- `clg` or `log` 输出 `console.log('[ ] >', )`
+提供了多种代码片段，输入触发词后按 Tab 键即可使用：
 
-![snippet-log](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_log.gif)
+1. 基础日志
+   - 触发词：`clg` 或 `log`
+   - 输出：`console.log('[ ] >', )`
 
-- `clog` 输出 `console.log('%c [ ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', '')`
+<img width="600" alt="基础日志演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_log.gif">
 
-![snippet-clog](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_clog.gif)
+2. 带样式的日志
+   - 触发词：`clog`
+   - 输出：带颜色和样式的日志语句
+   - 默认样式：粉色背景，紫色文字
 
-## 选择 console.log 参数数量
+<img width="600" alt="带样式日志演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_clog.gif">
 
-> 配置 console.log 的参数数量
+### 选择 console.log 参数数量
 
-首先打开配置入口
+> 可以根据需要选择日志语句的参数个数，支持以下三种格式：
 
-- macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
-- Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
+1. 单参数模式
 
-各个选项以 AT 作为变量示例：
+   - 格式：`console.log(value)`
+   - 示例：`console.log(data)`
 
-- 选择 [^console.log 接收 1 个参数] 输将会在页面上出 **console.log(AT)**
-- 选择 [^console.log 接收 2 个参数] 输将会在页面上出 **console.log('AT', AT)**
-- 选择 [^console.log 接收 3 个参数] 输将会在页面上出 **console.log('AT', 'color: #bf2c9f; background: pink; font-size: 13px; ', AT)**
+2. 双参数模式（带标签）
 
-## 配置前缀标识
+   - 格式：`console.log('标签', value)`
+   - 示例：`console.log('data', data)`
 
-> 配置前缀标识可以在控制台中，更快速的找到你的日志，唯一标识可区分是谁的日志
+3. 三参数模式（带样式）
+   - 格式：`console.log('标签', '样式', value)`
+   - 示例：`console.log('data', 'color: #bf2c9f; background: pink;', data)`
 
-配置 demo 已在配置说明中描述，快去配置专属于你的前缀吧
+设置方法：
 
-## 配置包装选择的变量
+1. 打开 VSCode 设置（Code > 首选项 > 设置）
+2. 搜索 "日志小助手"
+3. 选择期望的参数数量
 
-> 提高 console 的准确性和可读性，避免输出 [object Object] 等
+### 自定义前缀标识
 
-例如： `JSON.stringify(#)` 或 `JSON.parse(JSON.stringify(#))`
+> 为日志添加独特的前缀标识，方便在控制台中快速定位和区分不同来源的日志
 
-![wrap-select-variable](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2023_06_28_wrap_select_variable_setting.png)
-![wrap-select-variable](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2023_06_28_wrap_select_variable.png)
+设置方法：
 
-## 支持 Python 文件打印
+1. 打开 VSCode 设置（Code > 首选项 > 设置）
+2. 搜索 "日志小助手"
+3. 在 "Prefix" 配置项中输入你的标识，例如：
+   - `[DEBUG]`
+   - `[UserName]`
+   - `[Module]`
 
-光标放在变量上按下快捷键输出：`python()`
+效果示例：
 
-- macOS: `cmd` + `shift` + `l`
-- Windows: `ctrl` + `l`
+```javascript
+console.log("[DEBUG] data:", data)
+console.log("[UserName] result:", result)
+```
 
-## 支持随机颜色在终端展示
+### 变量格式化处理
+
+> 自动对复杂对象进行格式化，避免出现 `[object Object]` 这样难以阅读的输出
+
+设置方法：
+
+1. 打开 VSCode 设置（Code > 首选项 > 设置）
+2. 搜索 "日志小助手"
+3. 在 "Wrap Variable" 配置项中设置格式化方式：
+   - `JSON.stringify(#)` - 转换为格式化的 JSON 字符串
+   - `JSON.parse(JSON.stringify(#))` - 创建深拷贝并格式化
+
+配置效果：
+
+```javascript
+// 原始输出
+console.log(complexObject) // [object Object]
+
+// 格式化后
+console.log(JSON.stringify(complexObject)) // {"name": "example", "data": {...}}
+```
+
+<img width="600" alt="变量格式化处理演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2023_06_28_wrap_select_variable.png">
+
+### 支持随机颜色在终端展示
 
 在设置中勾选在终端中随机颜色
-![wrap-select-variable](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2024_07_08_random_color_in_terminal.png)
 
-## 配置项
+<img width="600" alt="支持随机颜色在终端展示演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2024_07_08_random_color_in_terminal.png">
 
-> 自定义小助手 console
+### 自定义日志函数
 
-快捷方式：
+> 可以自定义日志函数名称，支持各种格式的日志函数
 
-- macOS: Code > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
-- Windows: 文件 > 首选项 > 设置 > 输入 **日志小助手/consoleLog**，可自定义配置项。
+在设置中配置 "Custom Log Function"，可以使用自定义的日志函数名称，例如：
 
-![settings](https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_settings.gif)
+- `console.log`（默认）
+- `console.debug`
+- `debug.log`
+- `DEBUG_LOG`
+- `LOG_DEBUG`
+- `print`
 
-## Install
+配置后，插件会使用你设置的函数来打印日志，删除日志功能也会自动识别并删除这些自定义日志。
 
-安装插件：[VisualStudio - Marketplace](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)，VSCode 最低版本要求： `v1.51.0+`
+### 配置中心
+
+所有功能都可以在 VSCode 设置中心统一配置：
+
+1. 打开设置：
+   - macOS: Code > 首选项 > 设置
+   - Windows: 文件 > 首选项 > 设置
+2. 搜索 "日志小助手" 查看所有配置项
+
+<img width="600" alt="配置中心演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_settings.gif">
+
+## 安装方法
+
+1. 通过 VSCode 扩展商店安装：
+
+   - 在扩展商店中搜索 `console-helper`
+   - 或直接访问 [Marketplace](https://marketplace.visualstudio.com/items?itemName=AT-9420.console-helper)
+
+2. 系统要求：
+   - VSCode 版本 >= v1.51.0
 
 ## QA
 
-为什么我的不生效？
+### 快捷键无法使用？
 
-> 亲，可能是您的快捷键被占用了~
-> 请打开键盘快捷方式列表，查看您的快捷键是否被占用，删除占用的命令或修改 consoleLog 绑定的快捷键即可，具体的操作如下：
+可能原因：快捷键被其他插件或命令占用
 
-在键盘快捷方式列表，输入被占用的快捷方式例如 **cmd + shift + l** ，右键选择删除或修改其他命令。
+解决方法：
 
-## 交流群
+1. 打开快捷键设置面板：
+   - macOS: `cmd` + `k`, `cmd` + `s`
+   - Windows: `ctrl` + `k`, `ctrl` + `s`
+2. 搜索当前快捷键组合（如 `cmd` + `shift` + `l`）
+3. 检查是否有冲突的命令
+4. 选择处理方式：
+   - 删除冲突命令的快捷键
+   - 或为本插件设置新的快捷键
 
-扫码加群:
+## 社区交流
 
-<img style="display: block" width="303" alt="微信群" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat_group.jpeg">
+### 加入微信群
 
-若扫码进不去，可加微信拉入 **console helper 日志小助手群**：
+方式一：扫描二维码
 
-<img style="display: block" width="303" alt="微信号" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat.jpeg">
+<img width="303" alt="微信群二维码" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat_group.jpeg">
 
-或通过微信号： `AT-0529` 加好友，备注：**日志小助手**
+方式二：添加作者微信
 
-**如果对您有帮助，给个 star 是对我最大的支持~**
+- 微信号：`AT-0529`
+- 备注：日志小助手
+
+  <img width="303" alt="作者微信二维码" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat.jpeg">
+
+### 支持项目
+
+如果这个项目对您有帮助，欢迎：
+
+- ⭐ 给项目点个 star
+- 💡 分享使用心得
+- 🐛 提交 issue 或 PR
+- 👥 加入微信群交流
+
+如果对您有帮助，给个 star 是对我最大的支持~
 
 ## Changelog
 
