@@ -68,7 +68,7 @@ const switchFileName = (selectFileName, fileName) => {
     case '打印文件名+文件后缀名':
       // 完成
       return winPath(fileName.replace(/(.*\/)*([^.]+)/gi, '$2'))
-    case '打印文件名+后缀名+上级目录':
+    case '打印文件名+文件后缀名+上级目录':
       // 完成
       return winPath(fileName.replace(/.*\/([^\/]+\/[^\/]+)$/, '$1'))
     case '打印完整路径':
