@@ -5,7 +5,12 @@ import { formatVar } from ".."
 export const handleCursorInsert = async ({ selection, textEditor }) => {
   const document = textEditor.document
   // 获取文本位置
-  const range = document.getWordRangeAtPosition(selection.anchor, /[a-zA-Z_$][a-zA-Z0-9_$.]*/) || new Range(selection.start, selection.end)
+  // 如果是光标停留（没有选中文本），使用getWordRangeAtPosition获取单词范围
+  // 如果有选中文本，直接使用选中的范围
+  const range = selection.isEmpty
+    ? document.getWordRangeAtPosition(selection.anchor, /[a-zA-Z_$][a-zA-Z0-9_$.]*/) || new Range(selection.start, selection.end)
+    : new Range(selection.start, selection.end)
+
   const lineNumber = range.start.line
   // 通过范围获取文本
   const logText = formatVar(document.getText(range), lineNumber + 2)
