@@ -166,15 +166,17 @@
           "description": "插入 console.log 后光标的位置",
           "enum": [
             "none",
-            "end",
-            "inside",
-            "before_first_paren"
+            "first_param",
+            "last_param",
+            "start",
+            "end"
           ],
           "enumDescriptions": [
             "光标保持不动",
-            "光标位于最后一个括号后",
-            "光标位于最后一个括号内",
-            "光标位于第一个括号前"
+            "光标移动到第一个参数的位置",
+            "光标移动到最后一个参数的位置",
+            "光标移动到整行最前面",
+            "光标移动到整行的最后"
           ]
         },
         "consoleLog.Prefix Logo": {

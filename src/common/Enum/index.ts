@@ -95,12 +95,13 @@ export const STYLES = {
 }
 
 // 光标位置选项类型
-export type CursorPosition = "end" | "inside" | "none" | "before_first_paren"
+export type CursorPosition = "none" | "first_param" | "last_param" | "start" | "end"
 
 // 光标位置选项
 export const CURSOR_POSITIONS: Record<CursorPosition, CursorPosition> = {
-  none: "none", // 保持不动
-  end: "end", // 最后一个括号后
-  inside: "inside", // 最后一个括号内
-  before_first_paren: "before_first_paren", // 光标位于第一个括号前
+  none: "none", // 光标保持不动
+  first_param: "first_param", // 光标移动到第一个参数的位置
+  last_param: "last_param", // 光标移动到最后一个参数的位置
+  start: "start", // 光标移动到整行最前面
+  end: "end", // 光标移动到整行的最后
 }

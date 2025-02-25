@@ -28,25 +28,43 @@ const getIndentation = (document: any, lineNumber: number): string => {
 }
 
 // 计算新的光标位置
-const calculateNewCursorPosition = (text: string, insertedLineNumber: number, cursorPosition: CursorPosition): Position | null => {
+const calculateNewCursorPosition = (
+  document: any,
+  text: string,
+  insertedLineNumber: number,
+  cursorPosition: CursorPosition,
+  range: Range
+): Position | null => {
   if (cursorPosition === CURSOR_POSITIONS.none) return null
 
   switch (cursorPosition) {
-    case CURSOR_POSITIONS.end: {
-      const lastParenIndex = text.lastIndexOf(")")
-      return lastParenIndex !== -1 ? new Position(insertedLineNumber, lastParenIndex + 1) : null
-    }
-    case CURSOR_POSITIONS.inside: {
-      const lastParenIndex = text.lastIndexOf(")")
-      if (lastParenIndex !== -1) {
-        const lastCommaIndex = text.lastIndexOf(",")
-        return new Position(insertedLineNumber, lastCommaIndex + 2) // +2 是为了跳过逗号和空格
+    case CURSOR_POSITIONS.first_param: {
+      // 第一个参数的位置
+      const varName = document.getText(range)
+      const customLogFunction = getSettingValue("Custom Log Function") || "console.log"
+      const varIndex = text.indexOf(varName, text.indexOf(customLogFunction))
+      if (varIndex !== -1) {
+        return new Position(insertedLineNumber, varIndex)
       }
       return null
     }
-    case CURSOR_POSITIONS.before_first_paren: {
-      const firstParenIndex = text.indexOf("(", text.indexOf("console"))
-      return firstParenIndex !== -1 ? new Position(insertedLineNumber, firstParenIndex) : null
+    case CURSOR_POSITIONS.last_param: {
+      // 最后一个参数的位置
+      const varName = document.getText(range)
+      const lastIndex = text.lastIndexOf(varName)
+      if (lastIndex !== -1) {
+        return new Position(insertedLineNumber, lastIndex)
+      }
+      return null
+    }
+    case CURSOR_POSITIONS.start: {
+      // 整行最前面
+      const line = document.lineAt(insertedLineNumber)
+      return new Position(insertedLineNumber, line.firstNonWhitespaceCharacterIndex)
+    }
+    case CURSOR_POSITIONS.end: {
+      // 整行的最后
+      return new Position(insertedLineNumber, text.length)
     }
     default:
       return null
@@ -70,11 +88,11 @@ export const handleCursorInsert = async ({ selection, textEditor }) => {
   })
 
   // 4. 处理光标位置
-  const cursorPosition = getSettingValue("Cursor Position") || CURSOR_POSITIONS.end
+  const cursorPosition = getSettingValue("Cursor Position") || CURSOR_POSITIONS.none
   const insertedLineNumber = lineNumber + 1
   const insertedLine = document.lineAt(insertedLineNumber)
 
-  const newPosition = calculateNewCursorPosition(insertedLine.text, insertedLineNumber, cursorPosition)
+  const newPosition = calculateNewCursorPosition(document, insertedLine.text, insertedLineNumber, cursorPosition, range)
   if (newPosition) {
     textEditor.selection = new vscodeSelection(newPosition, newPosition)
   }
