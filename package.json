@@ -168,12 +168,12 @@
         "consoleLog.Color": {
           "type": "string",
           "default": "#bf2c9f",
-          "description": "字体颜色 [ HEX or RGBA ], 建议 #bf2c9f"
+          "description": "字体颜色（支持 HEX 或 RGBA 格式），例如：#bf2c9f。注意：如果选择了随机颜色，Color 设置将不生效。"
         },
         "consoleLog.Color Bg": {
           "type": "string",
           "default": "pink",
-          "description": "背景颜色 [ HEX or RGBA ], 建议 pink"
+          "description": "背景颜色（支持 HEX 或 RGBA 格式），例如：pink。注意：如果选择了随机颜色，Color Bg 设置将不生效。"
         },
         "consoleLog.Font Size": {
           "type": "string",
@@ -203,7 +203,7 @@
         "consoleLog.Custom Log Function": {
           "type": "string",
           "default": "console.log",
-          "description": "自定义日志函数名称，例如：console.log、debug_log.log、console.debug、DEBUG_LOG、LOG_DEBUG 等"
+          "description": "自定义日志函数名称（默认 console.log），例如：console.log、console.debug、logger.log、LOG_DEBUG、debug_log等"
         },
         "consoleLog.Wrap Select Variable": {
           "type": "string",
