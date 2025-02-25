@@ -23,11 +23,6 @@ const getAllLogStatements = (document, documentText) => {
   const logStatements = []
   let logFunctions = getSettingValue("Delete Log Functions")
 
-  // 如果logFunctions类型是 boolean 则转换成字符串
-  if (typeof logFunctions === "boolean") {
-    logFunctions = logFunctions.toString()
-  }
-
   // 去除前后空格
   logFunctions = logFunctions.trim()
 
