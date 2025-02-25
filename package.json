@@ -160,6 +160,23 @@
             "示例：console.log('AT', 'color: #bf2c9f; background: pink; font-size: 13px;', AT)"
           ]
         },
+        "consoleLog.Cursor Position": {
+          "type": "string",
+          "default": "none",
+          "description": "插入 console.log 后光标的位置",
+          "enum": [
+            "none",
+            "end",
+            "inside",
+            "before_first_paren"
+          ],
+          "enumDescriptions": [
+            "光标保持不动",
+            "光标位于最后一个括号后",
+            "光标位于最后一个括号内",
+            "光标位于第一个括号前"
+          ]
+        },
         "consoleLog.Prefix Logo": {
           "type": "string",
           "default": "[ # ]",
@@ -223,6 +240,8 @@
     "@types/mocha": "^8.0.0",
     "@types/node": "^12.11.7",
     "@types/vscode": "^1.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
     "eslint": "^7.9.0",
     "glob": "^7.1.6",
     "mocha": "^8.1.3",
