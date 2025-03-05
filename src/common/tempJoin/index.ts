@@ -26,11 +26,6 @@ const jsTemp = (temp, styles, wrapSelectVariable) => {
   let result = ""
   let customLogFunction = getSettingValue("Custom Log Function") || "console.log"
 
-  // 如果 customLogFunction 类型是 boolean 则转换成字符串
-  if (typeof customLogFunction === "boolean") {
-    customLogFunction = customLogFunction.toString()
-  }
-
   // 终端随机颜色 - 权重比后面的都高
   if (getRandomAnsiColorCodeConfig()) {
     const randomColorCode = getRandomAnsiColorCode()

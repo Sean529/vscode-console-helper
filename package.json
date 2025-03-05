@@ -2,7 +2,7 @@
   "name": "console-helper",
   "displayName": "console helper",
   "description": "console helper — 在代码中快速输出 console.log 的插件。",
-  "version": "2.14.2",
+  "version": "2.14.3",
   "publisher": "AT-9420",
   "repository": "https://github.com/shangZhengXie/console-helper",
   "icon": "static/console-helper.png",
@@ -160,6 +160,25 @@
             "示例：console.log('AT', 'color: #bf2c9f; background: pink; font-size: 13px;', AT)"
           ]
         },
+        "consoleLog.Cursor Position": {
+          "type": "string",
+          "default": "none",
+          "description": "插入 console.log 后光标的位置",
+          "enum": [
+            "none",
+            "first_param",
+            "last_param",
+            "start",
+            "end"
+          ],
+          "enumDescriptions": [
+            "光标保持不动",
+            "光标移动到第一个参数的位置",
+            "光标移动到最后一个参数的位置",
+            "光标移动到整行最前面",
+            "光标移动到整行的最后"
+          ]
+        },
         "consoleLog.Prefix Logo": {
           "type": "string",
           "default": "[ # ]",
@@ -168,12 +187,12 @@
         "consoleLog.Color": {
           "type": "string",
           "default": "#bf2c9f",
-          "description": "字体颜色 [ HEX or RGBA ], 建议 #bf2c9f"
+          "description": "字体颜色（支持 HEX 或 RGBA 格式），例如：#bf2c9f。注意：如果选择了随机颜色，Color 设置将不生效。"
         },
         "consoleLog.Color Bg": {
           "type": "string",
           "default": "pink",
-          "description": "背景颜色 [ HEX or RGBA ], 建议 pink"
+          "description": "背景颜色（支持 HEX 或 RGBA 格式），例如：pink。注意：如果选择了随机颜色，Color Bg 设置将不生效。"
         },
         "consoleLog.Font Size": {
           "type": "string",
@@ -203,7 +222,7 @@
         "consoleLog.Custom Log Function": {
           "type": "string",
           "default": "console.log",
-          "description": "自定义日志函数名称，例如：console.log、debug_log.log、console.debug、DEBUG_LOG、LOG_DEBUG 等"
+          "description": "自定义日志函数名称（默认 console.log），例如：console.log、console.debug、logger.log、LOG_DEBUG、debug_log等"
         },
         "consoleLog.Wrap Select Variable": {
           "type": "string",
@@ -223,6 +242,8 @@
     "@types/mocha": "^8.0.0",
     "@types/node": "^12.11.7",
     "@types/vscode": "^1.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
     "eslint": "^7.9.0",
     "glob": "^7.1.6",
     "mocha": "^8.1.3",
