@@ -68,7 +68,7 @@
    - macOS: `cmd` + `shift` + `l`
    - Windows: `ctrl` + `l`
 
-<img width="600" alt="选中变量打印演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_select_insert.gif">
+<img width="600" alt="选中变量打印演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2021_01_27_select_insert.gif">
 
 ### 随机颜色
 
@@ -82,7 +82,7 @@
 
 效果如下：
 
-<img width="600" alt="随机颜色演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/20220812_randomColor.gif">
+<img width="600" alt="随机颜色演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/20220812_randomColor.gif">
 
 ### 终端日志着色
 
@@ -95,7 +95,7 @@
 3. 勾选 "Random Color In Terminal" 选项
 
 效果展示：
-<img width="600" alt="终端日志着色演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2024_07_08_random_color_in_terminal.png">
+<img width="600" alt="终端日志着色演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2024_07_08_random_color_in_terminal.png">
 
 ### 快捷输出简单日志
 
@@ -111,7 +111,7 @@
 
 示例：插入 `console.log('', )`
 
-<img width="600" alt="简单日志演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/20220217_insert_simple.gif">
+<img width="600" alt="简单日志演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/20220217_insert_simple.gif">
 
 ### 一键清理日志
 
@@ -125,7 +125,7 @@
    - Windows: `ctrl` + `shift` + `d`
 3. 右下角会显示删除的日志数量
 
-<img width="600" alt="删除日志演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_delete_all_log.gif">
+<img width="600" alt="删除日志演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2021_01_27_delete_all_log.gif">
 
 #### 自定义要删除的日志函数
 
@@ -145,14 +145,14 @@
    - 触发词：`clg` 或 `log`
    - 输出：`console.log('[ ] >', )`
 
-<img width="600" alt="基础日志演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_log.gif">
+<img width="600" alt="基础日志演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_log.gif">
 
 2. 带样式的日志
    - 触发词：`clog`
    - 输出：带颜色和样式的日志语句
    - 默认样式：粉色背景，紫色文字
 
-<img width="600" alt="带样式日志演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_clog.gif">
+<img width="600" alt="带样式日志演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2021_01_27_snippet_clog.gif">
 
 ### 选择 console.log 参数数量
 
@@ -220,13 +220,13 @@ console.log(complexObject) // [object Object]
 console.log(JSON.stringify(complexObject)) // {"name": "example", "data": {...}}
 ```
 
-<img width="600" alt="变量格式化处理演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2023_06_28_wrap_select_variable.png">
+<img width="600" alt="变量格式化处理演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2023_06_28_wrap_select_variable.png">
 
 ### 支持随机颜色在终端展示
 
 在设置中勾选在终端中随机颜色
 
-<img width="600" alt="支持随机颜色在终端展示演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2024_07_08_random_color_in_terminal.png">
+<img width="600" alt="支持随机颜色在终端展示演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2024_07_08_random_color_in_terminal.png">
 
 ### 自定义日志函数
 
@@ -264,7 +264,7 @@ console.log(JSON.stringify(complexObject)) // {"name": "example", "data": {...}}
    - Windows: 文件 > 首选项 > 设置
 2. 搜索 "日志小助手" 查看所有配置项
 
-<img width="600" alt="配置中心演示" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_settings.gif">
+<img width="600" alt="配置中心演示" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2021_01_27_settings.gif">
 
 ## 安装方法
 
@@ -299,14 +299,14 @@ console.log(JSON.stringify(complexObject)) // {"name": "example", "data": {...}}
 
 方式一：扫描二维码
 
-<img width="303" alt="微信群二维码" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat_group.jpeg">
+<img width="303" alt="微信群二维码" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat_group.jpeg">
 
 方式二：添加作者微信
 
 - 微信号：`AT-0529`
 - 备注：日志小助手
 
-  <img width="303" alt="作者微信二维码" src="https://cdn.jsdelivr.net/gh/Sean529/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat.jpeg">
+  <img width="303" alt="作者微信二维码" src="https://cdn.jsdelivr.net/gh/Jerryx333/at-pic-repo@master/consoleHelp/image/2021_01_27_wechat.jpeg">
 
 ### 支持项目
 
