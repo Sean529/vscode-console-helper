@@ -1,6 +1,6 @@
 import { commands, extensions, window } from 'vscode'
 import axios from 'axios'
-const compareVersions = require('compare-versions')
+import compareVersions = require('compare-versions')
 
 export const checkForUpdate = () => {
   const consoleHelperExt = extensions.getExtension('at-9420.console-helper')

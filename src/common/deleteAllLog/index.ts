@@ -27,7 +27,7 @@ const getAllLogStatements = (document, documentText) => {
   logFunctions = logFunctions.trim()
 
   // 将配置的函数转换为数组
-  let logFunctionsArr = logFunctions.split(",").map((f) => f.trim())
+  const logFunctionsArr = logFunctions.split(",").map((f) => f.trim())
 
   // 默认的 console 方法
   const defaultLogFunctions = [

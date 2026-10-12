@@ -24,7 +24,7 @@ const pythonTemp = (_temp, _styles, wrapSelectVariable) => {
 // js 模板
 const jsTemp = (temp, styles, wrapSelectVariable) => {
   let result = ""
-  let customLogFunction = getSettingValue("Custom Log Function") || "console.log"
+  const customLogFunction = getSettingValue("Custom Log Function") || "console.log"
 
   // 终端随机颜色 - 权重比后面的都高
   if (getRandomAnsiColorCodeConfig()) {

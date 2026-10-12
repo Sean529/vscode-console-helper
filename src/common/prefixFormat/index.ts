@@ -24,11 +24,11 @@ export const prefixFormat = ({
     // 若是双引号，则变量要改为单引号；若是单引号，则变量要改为双引号
     const selectQuotes = getSettingValue('Select Quotes') // 获取单双引号用配置信息
     if (selectQuotes === 'double') {
-      selectVariable = selectVariable.replace(/\"/g, "'")
+      selectVariable = selectVariable.replace(/"/g, "'")
       // 若是双引号，则变量要改为单引号
     } else {
       // 若是单引号，则变量要改为双引号
-      selectVariable = selectVariable.replace(/\'/g, '"')
+      selectVariable = selectVariable.replace(/'/g, '"')
     }
     // 正确填写，替换占位符
     return prefixLogo.replace(PLACEHOLDER, selectVariable)
@@ -70,7 +70,7 @@ const switchFileName = (selectFileName, fileName) => {
       return winPath(fileName.replace(/(.*\/)*([^.]+)/gi, '$2'))
     case '打印文件名+文件后缀名+上级目录':
       // 完成
-      return winPath(fileName.replace(/.*\/([^\/]+\/[^\/]+)$/, '$1'))
+      return winPath(fileName.replace(/.*\/([^/]+\/[^/]+)$/, '$1'))
     case '打印完整路径':
       // 完成
       return winPath(fileName)

@@ -1,9 +1,9 @@
-import { Range, Position, Selection as vscodeSelection } from "vscode"
+import { Range, Position, Selection as vscodeSelection, TextDocument } from "vscode"
 import { formatVar, getSettingValue } from ".."
 import { CURSOR_POSITIONS, CursorPosition } from "../Enum"
 
 // 获取要插入日志的文本范围
-const getTextRange = (selection: vscodeSelection, document: any): { range: Range; lineNumber: number } => {
+const getTextRange = (selection: vscodeSelection, document: TextDocument): { range: Range; lineNumber: number } => {
   const range = selection.isEmpty
     ? document.getWordRangeAtPosition(selection.anchor, /[a-zA-Z_$][a-zA-Z0-9_$.]*/) || new Range(selection.start, selection.end)
     : new Range(selection.start, selection.end)
@@ -12,7 +12,7 @@ const getTextRange = (selection: vscodeSelection, document: any): { range: Range
 }
 
 // 获取缩进空格
-const getIndentation = (document: any, lineNumber: number): string => {
+const getIndentation = (document: TextDocument, lineNumber: number): string => {
   const currentLine = document.lineAt(lineNumber)
   const currentIndent = currentLine.text.substring(0, currentLine.firstNonWhitespaceCharacterIndex)
 
@@ -29,7 +29,7 @@ const getIndentation = (document: any, lineNumber: number): string => {
 
 // 计算新的光标位置
 const calculateNewCursorPosition = (
-  document: any,
+  document: TextDocument,
   text: string,
   insertedLineNumber: number,
   cursorPosition: CursorPosition,
